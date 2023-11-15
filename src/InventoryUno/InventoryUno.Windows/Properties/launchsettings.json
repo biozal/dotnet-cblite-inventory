@@ -1,0 +1,10 @@
+{
+	"profiles": {
+		"InventoryUno.Windows (Unpackaged)": {
+			"commandName": "Project"
+		},
+		"InventoryUno.Windows (Package)": {
+			"commandName": "MsixPackage"
+		}
+	}
+}
