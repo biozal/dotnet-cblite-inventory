@@ -1,11 +1,28 @@
+using Dotnet.Cblite.Inventory.Shared.Services;
+using Microsoft.Extensions.Hosting;
+
 namespace InventoryUno;
 
 public class App : Application
 {
+    protected IHost? Host { get; private set; } 
     protected Window? MainWindow { get; private set; }
 
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
+        var appBuilder = this.CreateBuilder(args)
+            .Configure(hostBuilder =>
+            {
+                hostBuilder
+                    .ConfigureServices((context, services) =>
+                        {
+                            // Register your services
+                            services.AddSingleton<IAuthenticationService, MockAuthenticationService>();
+                        }
+                    );
+            });
+    
+        
 #if NET6_0_OR_GREATER && WINDOWS && !HAS_UNO
         MainWindow = new Window();
 #else
@@ -40,6 +57,7 @@ public class App : Application
 
         // Ensure the current window is active
         MainWindow.Activate();
+        Host = appBuilder.Build();
     }
 
     /// <summary>

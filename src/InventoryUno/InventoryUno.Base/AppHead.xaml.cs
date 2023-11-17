@@ -2,6 +2,8 @@ using System;
 using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml;
 using Uno.Resizetizer;
+using Dotnet.Cblite.Inventory.Shared.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace InventoryUno;
 

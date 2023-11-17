@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.NavBarIsVisible="False"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             Title="Login"
+             x:Class="Dotnet.Cblite.Inventory.Maui.Views.LoginView">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <VerticalStackLayout VerticalOptions="Center" Padding="30" Spacing="20">
+                   <ImageButton
+                       Clicked="ImageButton_OnClicked"
+                       Source="couchbase.png" 
+                       HeightRequest="80" 
+                       WidthRequest="80" />
+                    <Entry
+                        Keyboard="Email"
+                        IsSpellCheckEnabled="False"
+                        Placeholder="Email"
+                        Text="">
+                    </Entry>
+                    <Entry
+                        IsPassword="True"
+                        Placeholder="Password"
+                        Text="" />
+                    <Button
+                        x:Name="Login"
+                        Margin="0,30,0,0"
+                        BackgroundColor="#EC1218"
+                        HeightRequest="60"
+                        Text="Login"
+                        TextColor="#FBF6FD" />
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

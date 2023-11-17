@@ -33,7 +33,7 @@
     <PackageVersion Include="Uno.WinUI.Skia.Gtk" Version="5.0.41" />
     <PackageVersion Include="Uno.WinUI.WebAssembly" Version="5.0.41" />
     <PackageVersion Include="Xamarin.Google.Android.Material" Version="1.10.0.1" />
-
     <PackageReference Include="Uno.Extensions.Hosting.WinUI" Version="3.0.11" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
 </Project>

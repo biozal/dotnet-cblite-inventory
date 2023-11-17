@@ -9,4 +9,8 @@
     <None Include="**\*" Exclude="obj\**;bin\**;*.csproj" />
     <None Update="AppHead.xaml.cs" DependentUpon="AppHead.xaml" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dotnet.Cblite.Inventory.Shared\Dotnet.Cblite.Inventory.Shared.csproj" />
+  </ItemGroup>
 </Project>

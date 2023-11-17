@@ -26,6 +26,7 @@
     <PackageReference Include="Uno.Extensions.Reactive.WinUI.Markup" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" />
     <PackageReference Include="Uno.Extensions.Hosting.WinUI" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
 
 
