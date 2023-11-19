@@ -1,14 +1,15 @@
-﻿using Dotnet.Cblite.Inventory.Maui.Views;
+﻿using Dotnet.Cblite.Inventory.Maui.ViewModel;
+using Dotnet.Cblite.Inventory.Maui.Views;
+using Dotnet.Cblite.Inventory.Shared.Services;
 
 namespace Dotnet.Cblite.Inventory.Maui;
 
 public partial class App : Application
 {
-	public App()
+	public App(LoginView loginView, AppShell appShell)
 	{
 		InitializeComponent();
-		MainPage = new LoginView();
 		
-		//MainPage = new AppShell();
+		MainPage = loginView;
 	}
 }

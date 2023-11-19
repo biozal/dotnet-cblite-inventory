@@ -1,4 +1,5 @@
 ﻿using Dotnet.Cblite.Inventory.Maui.Views;
+using Dotnet.Cblite.Inventory.Shared.Services;
 
 namespace Dotnet.Cblite.Inventory.Maui;
 
@@ -9,7 +10,6 @@ public partial class AppShell : Shell
 		InitializeComponent();
 		
 		//setup routes
-		Routing.RegisterRoute("login", typeof(LoginView));
 		Routing.RegisterRoute("projects", typeof(ProjectsView));
 		Routing.RegisterRoute("project", typeof(ProjectView));
 		Routing.RegisterRoute("audits", typeof(AuditsView));

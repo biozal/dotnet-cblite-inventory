@@ -3,15 +3,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.NavBarIsVisible="False"
+             xmlns:vm="clr-namespace:Dotnet.Cblite.Inventory.Maui.ViewModel;"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              Title="Login"
+             x:DataType="vm:LoginViewModel"
              x:Class="Dotnet.Cblite.Inventory.Maui.Views.LoginView">
     <ContentPage.Content>
         <ScrollView>
             <Grid>
                 <VerticalStackLayout VerticalOptions="Center" Padding="30" Spacing="20">
                    <ImageButton
-                       Clicked="ImageButton_OnClicked"
+                       Command="{Binding SetDefaultUsernamePasswordCommand}"
                        Source="couchbase.png" 
                        HeightRequest="80" 
                        WidthRequest="80" />
@@ -19,19 +21,24 @@
                         Keyboard="Email"
                         IsSpellCheckEnabled="False"
                         Placeholder="Email"
-                        Text="">
+                        Text="{Binding Username}">
                     </Entry>
                     <Entry
                         IsPassword="True"
                         Placeholder="Password"
-                        Text="" />
+                        Text="{Binding Password}" />
                     <Button
                         x:Name="Login"
+                        Command="{Binding AuthenticateCommand}" 
                         Margin="0,30,0,0"
                         BackgroundColor="#EC1218"
                         HeightRequest="60"
                         Text="Login"
                         TextColor="#FBF6FD" />
+                   <Label
+                       Text="{Binding ErrorMessage}"
+                       Margin="0, 30, 0, 0"
+                       />
                 </VerticalStackLayout>
             </Grid>
         </ScrollView>

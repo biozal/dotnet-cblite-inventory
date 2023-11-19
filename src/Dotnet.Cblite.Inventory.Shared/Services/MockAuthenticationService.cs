@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Threading.Channels;
+using CommunityToolkit.Mvvm.Messaging;
 using Dotnet.Cblite.Inventory.Shared.Messages;
 using Dotnet.Cblite.Inventory.Shared.Models;
 
@@ -8,17 +9,6 @@ namespace Dotnet.Cblite.Inventory.Shared.Services;
 public class MockAuthenticationService
     : IAuthenticationService
 {
-    private readonly Channel<AuthenticationMessage> _channel = Channel.CreateBounded<AuthenticationMessage>(
-        new BoundedChannelOptions(1)
-        {
-            SingleWriter = true,
-            SingleReader = false,
-            AllowSynchronousContinuations = false,
-            FullMode = BoundedChannelFullMode.DropOldest
-        });
-
-    public ChannelReader<AuthenticationMessage> ChannelReader => _channel.Reader;
-
     private readonly IEnumerable<User> _mockUsers = new List<User>
     {
         new User("demo@example.com", "P@ssw0rd12", "team1"),
@@ -41,7 +31,7 @@ public class MockAuthenticationService
 
     public User? CurrentUser { get; set; }
 
-    public async ValueTask AuthenticateUserAsync(string username, string password, CancellationToken token)
+    public void AuthenticateUser(string username, string password, CancellationToken token)
     {
         try
         {
@@ -49,8 +39,11 @@ public class MockAuthenticationService
             token.ThrowIfCancellationRequested();
 
             CurrentUser = _mockUsers.First(x => x.Username == username && x.Password == password);
-            await _channel.Writer.WriteAsync(new AuthenticationMessage(AuthenticationStatus.Authenticated, username),
-                token);
+            WeakReferenceMessenger.Default.Send(
+                new AuthenticationMessage(
+                    new UserAuthenticationStatus(AuthenticationStatus.Authenticated, username)
+                )
+            );
         }
         catch (OperationCanceledException)
         {
@@ -60,17 +53,23 @@ public class MockAuthenticationService
         catch (Exception)
         {
             CurrentUser = null;
-            await _channel.Writer.WriteAsync(
-                new AuthenticationMessage(AuthenticationStatus.AuthenticationErrorUsernamePassword, username), token);
+            WeakReferenceMessenger.Default.Send(
+                new AuthenticationMessage(
+                    new UserAuthenticationStatus(AuthenticationStatus.AuthenticationErrorUsernamePassword, username)
+                    )
+                );
         }
     }
 
-    public async ValueTask Logout()
+    public void Logout()
     {
         string? currentUsername = CurrentUser?.Username.Clone() as string;
 
         CurrentUser = null;
-        await _channel.Writer.WriteAsync(new AuthenticationMessage(AuthenticationStatus.SignedOut,
-            currentUsername ?? ""));
+        WeakReferenceMessenger.Default.Send(
+            new AuthenticationMessage(
+                new UserAuthenticationStatus(AuthenticationStatus.SignedOut, currentUsername ?? "")
+                )
+            );
     }
 }

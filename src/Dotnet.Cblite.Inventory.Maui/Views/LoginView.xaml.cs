@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dotnet.Cblite.Inventory.Maui.ViewModel;
 
 namespace Dotnet.Cblite.Inventory.Maui.Views;
 
 public partial class LoginView : ContentPage
 {
-    public LoginView()
+    public LoginView(LoginViewModel viewModel)
     {
         InitializeComponent();
-    }
-
-    private void ImageButton_OnClicked(object sender, EventArgs e)
-    {
+        BindingContext = viewModel;
     }
 }

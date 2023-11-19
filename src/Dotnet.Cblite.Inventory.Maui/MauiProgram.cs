@@ -26,7 +26,9 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 		builder.Services.AddSingleton<IAuthenticationService, MockAuthenticationService>();
-		
+
+		builder.Services.AddTransient<AppShell>();
+		builder.Services.AddTransient<App>();
 		builder.Services.AddTransient<LoginView>();
 		builder.Services.AddTransient<LoginViewModel>();
 

@@ -1,3 +1,5 @@
+using CommunityToolkit.Mvvm.Messaging.Messages;
+
 namespace Dotnet.Cblite.Inventory.Shared.Messages;
 
 public enum AuthenticationStatus
@@ -8,4 +10,7 @@ public enum AuthenticationStatus
     AuthenticationErrorServiceNotAvailable,
 }
 
-public readonly record struct AuthenticationMessage(AuthenticationStatus Status, string Username);
+public record UserAuthenticationStatus(AuthenticationStatus Status, string Username);
+
+public class AuthenticationMessage(UserAuthenticationStatus status)
+    : ValueChangedMessage<UserAuthenticationStatus>(status);
