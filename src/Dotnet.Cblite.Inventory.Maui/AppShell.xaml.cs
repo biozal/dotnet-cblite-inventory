@@ -14,7 +14,10 @@ public partial class AppShell : Shell
 		Routing.RegisterRoute("project", typeof(ProjectView));
 		Routing.RegisterRoute("audits", typeof(AuditsView));
 		Routing.RegisterRoute("audit", typeof(AuditView));
-		Routing.RegisterRoute("userProfile", typeof(UserProfileView));
 		Routing.RegisterRoute("developerMenu", typeof(DeveloperMenuView));
+		Routing.RegisterRoute("developerInfo", typeof(DeveloperInfoView));
+		Routing.RegisterRoute("developerLogs", typeof(DeveloperLogsView));
+		Routing.RegisterRoute("userProfile", typeof(UserProfileView));
+		Routing.RegisterRoute("replicator", typeof(ReplicatorView));
 	}
 }

@@ -28,5 +28,9 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+	<key>CFBundleDisplayName</key>
+	<string>CBL Inventory</string>
+	<key>CFBundleName</key>
+	<string>CBL Inventory</string>
 </dict>
 </plist>
