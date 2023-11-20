@@ -1,13 +1,16 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Dotnet.Cblite.Inventory.Shared.Messages;
 using Dotnet.Cblite.Inventory.Shared.Services;
 
 namespace Dotnet.Cblite.Inventory.Maui.ViewModel;
 
-public partial class LoginViewModel(IAuthenticationService authenticationServices) 
+public partial class LoginViewModel 
     : ObservableObject
 {
+    private readonly IAuthenticationService _authenticationService;
+    
     [ObservableProperty]
     private string _username;
     
@@ -17,6 +20,13 @@ public partial class LoginViewModel(IAuthenticationService authenticationService
     [ObservableProperty]
     private string _errorMessage;
 
+    public LoginViewModel(IAuthenticationService authenticationService)
+    {
+        _authenticationService = authenticationService;
+        
+        WeakReferenceMessenger.Default.Register<AuthenticationMessage>(this, (r, m) => { ProcessAuthentication(m); });
+    }
+    
     [RelayCommand]
     private void SetDefaultUsernamePassword()
     {
@@ -25,28 +35,27 @@ public partial class LoginViewModel(IAuthenticationService authenticationService
     } 
 
     [RelayCommand]
-    public async Task Authenticate()
+    public void Authenticate()
     {
         var token = new CancellationToken();
-        await authenticationServices.AuthenticateUserAsync(_username, _password, token);
-        
-        var isComplete = await authenticationServices.ChannelReader.WaitToReadAsync(token);
-        if (isComplete)
+        _authenticationService.AuthenticateUser(Username, Password, token);
+    }
+    
+    private void ProcessAuthentication(AuthenticationMessage message)
+    {
+        var userAuthMessage = message.Value;
+
+        if (userAuthMessage.Status == AuthenticationStatus.AuthenticationErrorUsernamePassword)
         {
-            var authMessage = await authenticationServices.ChannelReader.ReadAsync(token);
-            if (authMessage.Status == AuthenticationStatus.AuthenticationErrorUsernamePassword)
-            {
-                ErrorMessage = "Error in username or password";
-            }
-            else if (authMessage.Status == AuthenticationStatus.AuthenticationErrorServiceNotAvailable)
-            {
-                ErrorMessage = "Authentication Service not available";
-            }
-            else
-            {
-                ErrorMessage = string.Empty;
-                //typecast App.Current to my app and then swap out the main view to the shell
-            }
+            ErrorMessage = "Error in username or password";
+        }
+        else if (userAuthMessage.Status == AuthenticationStatus.AuthenticationErrorServiceNotAvailable)
+        {
+            ErrorMessage = "Authentication Service not available";
+        }
+        else if (userAuthMessage.Status == AuthenticationStatus.Authenticated)
+        {
+            ErrorMessage = string.Empty;
         }
     }
 }

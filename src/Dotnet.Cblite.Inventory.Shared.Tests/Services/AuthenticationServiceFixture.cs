@@ -7,18 +7,27 @@ namespace Dotnet.Cblite.Inventory.Shared.Tests;
 public class AuthenticationServiceFixture 
     : IDisposable
 {
-    public IAuthenticationService? AuthenticationService { get; private set; }
-    public IMessenger? Messenger { get; private set; }
-
-    public AuthenticationServiceFixture()
-    {
-        AuthenticationService = new MockAuthenticationService();
-        Messenger = new WeakReferenceMessenger();
-    }
+    private bool isDisposed;
+    
+    public IAuthenticationService? AuthenticationService { get; private set; } = new MockAuthenticationService();
+    public IMessenger? Messenger { get; private set; } = new WeakReferenceMessenger();
 
     public void Dispose()
     {
-        AuthenticationService = null;
-        Messenger = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (isDisposed) return;
+
+        if (disposing)
+        {
+            AuthenticationService = null;
+            Messenger = null;
+        }
+
+        isDisposed = true;
     }
 }
