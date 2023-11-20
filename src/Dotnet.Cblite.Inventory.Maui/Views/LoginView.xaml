@@ -5,6 +5,7 @@
              Shell.NavBarIsVisible="False"
              xmlns:vm="clr-namespace:Dotnet.Cblite.Inventory.Maui.ViewModel;"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
              Title="Login"
              x:DataType="vm:LoginViewModel"
              x:Class="Dotnet.Cblite.Inventory.Maui.Views.LoginView">
@@ -12,8 +13,12 @@
         <ScrollView>
             <Grid>
                 <VerticalStackLayout 
-                    VerticalOptions="Center" 
-                    Spacing="20">
+                    VerticalOptions="Center">
+                    <VerticalStackLayout.Spacing>
+                        <OnPlatform x:TypeArguments="system:Double" Default="30">
+                            <On Platform="MacCatalyst" Value="50"/>
+                        </OnPlatform>
+                    </VerticalStackLayout.Spacing>
                     <VerticalStackLayout.Padding>
                         <OnPlatform x:TypeArguments="Thickness" Default="30, 0">
                             <On Platform="MacCatalyst" Value="300, 0"/>
