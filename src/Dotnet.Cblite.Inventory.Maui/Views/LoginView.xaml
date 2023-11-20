@@ -11,8 +11,15 @@
     <ContentPage.Content>
         <ScrollView>
             <Grid>
-                <VerticalStackLayout VerticalOptions="Center" Padding="30" Spacing="20">
-                   <ImageButton
+                <VerticalStackLayout 
+                    VerticalOptions="Center" 
+                    Spacing="20">
+                    <VerticalStackLayout.Padding>
+                        <OnPlatform x:TypeArguments="Thickness" Default="30, 0">
+                            <On Platform="MacCatalyst" Value="300, 0"/>
+                        </OnPlatform>
+                    </VerticalStackLayout.Padding>
+                    <ImageButton
                        Command="{Binding SetDefaultUsernamePasswordCommand}"
                        Source="couchbase.png" 
                        HeightRequest="80" 
