@@ -4,6 +4,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dotnet.Cblite.Inventory.Maui.Views.ProjectView">
     <ContentPage.Content>
-        
+        <VerticalStackLayout 
+            HorizontalOptions="Center" 
+            VerticalOptions="Center">
+            <Label 
+                Text="Replicator" 
+                FontSize="Title" /> 
+        </VerticalStackLayout>        
     </ContentPage.Content>
 </ContentPage>

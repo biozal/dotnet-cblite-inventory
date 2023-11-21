@@ -1,15 +1,128 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <Shell
     x:Class="Dotnet.Cblite.Inventory.Maui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Dotnet.Cblite.Inventory.Maui.Views"
-    Shell.FlyoutBehavior="Disabled"
+    FlyoutBehavior="Flyout"
+    FlyoutHeaderBehavior="Fixed"
+    FlyoutVerticalScrollMode="Auto"
     Title="Dotnet.Cblite.Inventory.Maui">
 
-    <ShellContent
-        Title="Projects"
-        ContentTemplate="{DataTemplate local:ProjectsView}"
-        Route="ProjectsView" />
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid
+                Padding="0, 100, 0, 0">
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
 
+    <FlyoutItem Title="Projects">
+        <ShellContent
+            Title="Projects"
+            ContentTemplate="{DataTemplate local:ProjectsView}"
+            Route="Projects" />
+    </FlyoutItem>
+    <FlyoutItem Title="Developer">
+        <ShellContent
+            Title="Developer Options"
+            ContentTemplate="{DataTemplate local:DeveloperMenuView}"
+            Route="DeveloperMenu" />
+    </FlyoutItem>
+    <FlyoutItem Title="Replication">
+        <ShellContent
+            Title="Replicator"
+            ContentTemplate="{DataTemplate local:ReplicatorView}"
+            Route="Replicator" />
+    </FlyoutItem>
+
+    <MenuItem Text="Logout"
+              Clicked="Logout_Clicked" />
+    
+    <!-- Shell Drawing Template
+    https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/shell/flyout?view=net-maui-8.0  
+    --> 
+    <!--
+    <Shell.ItemTemplate>
+        <DataTemplate x:Key="FlyoutTemplate">
+            <Grid x:Name="FlyoutItemLayout"
+                  HeightRequest="{OnPlatform 44, iOS=80, Android=50, MacCatalyst=80}"
+                  ColumnSpacing="{OnPlatform WinUI=0}"
+                  RowSpacing="{OnPlatform WinUI=0, iOS=20, MacCatalyst=20}">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                            Value="Transparent" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                            Value="{AppThemeBinding Light=Black, Dark=White}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{OnPlatform Android=54, iOS=50, WinUI=Auto, MacCatalyst=Auto}" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image x:Name="FlyoutItemImage"
+                       Source="{Binding FlyoutIcon}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="{OnPlatform Default=Center, WinUI=Start}"
+                       HeightRequest="{OnPlatform Android=24, iOS=22, WinUI=16}"
+                       WidthRequest="{OnPlatform Android=24, iOS=22, WinUI=16}">
+                    <Image.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <OnPlatform.Platforms>
+                                <On Platform="WinUI"
+                                    Value="12,0,12,0" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Image.Margin>
+                </Image>
+                <Label x:Name="FlyoutItemLabel"
+                       Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontSize="{OnPlatform Android=14, iOS=14, MacCatalyst=20, WinUI=20}"
+                       FontAttributes="{OnPlatform iOS=Bold, MacCatalyst=Bold}"
+                       HorizontalOptions="{OnPlatform WinUI=Start}"
+                       HorizontalTextAlignment="{OnPlatform WinUI=Start}"
+                       VerticalTextAlignment="Center">
+                    <Label.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.Platforms>
+                                <On Platform="Android"
+                                    Value="{AppThemeBinding Light=Black, Dark=White}" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Label.TextColor>
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <OnPlatform.Platforms>
+                                <On Platform="Android"
+                                    Value="20, 0, 0, 0" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Label.Margin>
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.Platforms>
+                                <On Platform="Android"
+                                    Value="sans-serif-medium" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                    ->
+                </Label>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+    -->
 </Shell>
