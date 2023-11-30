@@ -9,7 +9,7 @@
     FlyoutHeaderBehavior="Fixed"
     FlyoutVerticalScrollMode="Auto"
     Title="Dotnet.Cblite.Inventory.Maui">
-
+        
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <Grid
@@ -37,19 +37,43 @@
             Route="Replicator" />
     </FlyoutItem>
 
-    <MenuItem Text="Logout"
-              Clicked="Logout_Clicked" />
+    <MenuItem 
+        Text="Logout"
+        Clicked="Logout_Clicked" />
     
     <!-- Shell Drawing Template
     https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/shell/flyout?view=net-maui-8.0  
     --> 
+    
     <!--
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{OnPlatform Android=54, iOS=50, WinUI=Auto, MacCatalyst=Auto}" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Icon}"
+                       Margin="5"
+                       HeightRequest="45" />
+                <Label Grid.Column="1"
+                       Text="{Binding Text}"
+                       FontSize="{OnPlatform Android=14, iOS=14, MacCatalyst=20, WinUI=20}"
+                       FontAttributes="{OnPlatform iOS=Bold, MacCatalyst=Bold}"
+                       VerticalTextAlignment="Center" 
+                       HorizontalOptions="{OnPlatform WinUI=Start}"
+                       HorizontalTextAlignment="{OnPlatform WinUI=Start}"
+                       />
+            </Grid>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+    
     <Shell.ItemTemplate>
         <DataTemplate x:Key="FlyoutTemplate">
             <Grid x:Name="FlyoutItemLayout"
-                  HeightRequest="{OnPlatform 44, iOS=80, Android=50, MacCatalyst=80}"
+                  HeightRequest="{OnPlatform 44, iOS=80, Android=50, MacCatalyst=75}"
                   ColumnSpacing="{OnPlatform WinUI=0}"
-                  RowSpacing="{OnPlatform WinUI=0, iOS=20, MacCatalyst=20}">
+                  RowSpacing="{OnPlatform WinUI=0, iOS=20}">
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
@@ -62,7 +86,7 @@
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor"
-                                            Value="{AppThemeBinding Light=Black, Dark=White}" />
+                                            Value="#EC1218" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -95,6 +119,7 @@
                        HorizontalOptions="{OnPlatform WinUI=Start}"
                        HorizontalTextAlignment="{OnPlatform WinUI=Start}"
                        VerticalTextAlignment="Center">
+                       
                     <Label.TextColor>
                         <OnPlatform x:TypeArguments="Color">
                             <OnPlatform.Platforms>
@@ -119,7 +144,8 @@
                             </OnPlatform.Platforms>
                         </OnPlatform>
                     </Label.FontFamily>
-                    ->
+                    
+                    
                 </Label>
             </Grid>
         </DataTemplate>
