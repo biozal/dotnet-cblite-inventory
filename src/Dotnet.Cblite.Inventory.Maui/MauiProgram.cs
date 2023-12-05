@@ -15,6 +15,9 @@ public static class MauiProgram
 			.UseMauiApp<App>()
 			// Initialize the .NET MAUI Community Toolkit by adding the below line of code
 			.UseMauiCommunityToolkit()
+			.RegisterViewModels()
+			.RegisterViews()
+			.RegisterServices()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("FontAwesomeSolid.otf", "AwesomeSolid");
@@ -26,35 +29,61 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 		
-		builder.Services.AddSingleton<IAuthenticationService, MockAuthenticationService>();
-
 		builder.Services.AddTransient<AppShell>();
 		builder.Services.AddTransient<App>();
 		
-		//authentication screens
-		builder.Services.AddTransient<LoginView>();
-		builder.Services.AddTransient<LoginViewModel>();
-		
-		//business screens
-		builder.Services.AddTransient<ProjectsView>();
-		builder.Services.AddTransient<ProjectsViewModel>();
-		builder.Services.AddTransient<ProjectView>();
-		builder.Services.AddTransient<ProjectViewModel>();
-		builder.Services.AddTransient<AuditsView>();
-		builder.Services.AddTransient<AuditsViewModel>();
-		builder.Services.AddTransient<AuditView>();
-		builder.Services.AddTransient<AuditViewModel>();
-		
-		//developer screens	
-		builder.Services.AddTransient<DeveloperMenuView>();
-		builder.Services.AddTransient<DeveloperMenuViewModel>();
-		builder.Services.AddTransient<DeveloperInfoView>();
-		builder.Services.AddTransient<DeveloperInfoViewModel>();
-		builder.Services.AddTransient<DeveloperLogsView>();
-		builder.Services.AddTransient<DeveloperLogsViewModel>();
-		builder.Services.AddTransient<ReplicatorView>();
-		builder.Services.AddTransient<ReplicatorViewModel>();
-
 		return builder.Build();
 	}
+
+	private static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
+	{
+		mauiAppBuilder.Services.AddSingleton<IAuthenticationService, MockAuthenticationService>();
+
+		#if IOS
+			mauiAppBuilder.Services.AddSingleton<IDatabaseSeedService, IOSDatabaseSeedService>();
+		#elif MACCATALYST
+			mauiAppBuilder.Services.AddSingleton<IDatabaseSeedService, MacDatabaseSeedService>();
+		#elif ANDROID
+			mauiAppBuilder.Services.AddSingleton<IDatabaseSeedService, AndroidDatabaseSeedService>();
+		#endif
+		
+		return mauiAppBuilder;	
+	}
+
+	private static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
+	{
+		//authentication screens
+		mauiAppBuilder.Services.AddTransient<LoginView>();
+		
+		//business screens
+		mauiAppBuilder.Services.AddTransient<ProjectsView>();
+		mauiAppBuilder.Services.AddTransient<ProjectView>();
+		mauiAppBuilder.Services.AddTransient<AuditsView>();
+		mauiAppBuilder.Services.AddTransient<AuditView>();
+		
+		//developer screens	
+		mauiAppBuilder.Services.AddTransient<DeveloperMenuView>();
+		mauiAppBuilder.Services.AddTransient<DeveloperInfoView>();
+		mauiAppBuilder.Services.AddTransient<DeveloperLogsView>();
+		mauiAppBuilder.Services.AddTransient<ReplicatorView>();	
+		
+		return mauiAppBuilder;
+	}
+	
+	private static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
+	{
+		mauiAppBuilder.Services.AddTransient<LoginViewModel>();
+		mauiAppBuilder.Services.AddTransient<ProjectsViewModel>();
+		mauiAppBuilder.Services.AddTransient<ProjectViewModel>();
+		mauiAppBuilder.Services.AddTransient<AuditsViewModel>();
+		mauiAppBuilder.Services.AddTransient<AuditViewModel>();
+		mauiAppBuilder.Services.AddTransient<DeveloperMenuViewModel>();
+		mauiAppBuilder.Services.AddTransient<DeveloperInfoViewModel>();
+		mauiAppBuilder.Services.AddTransient<DeveloperLogsViewModel>();
+		mauiAppBuilder.Services.AddTransient<ReplicatorViewModel>();
+
+		return mauiAppBuilder;
+	}
+	
+	
 }
