@@ -10,14 +10,25 @@
     FlyoutVerticalScrollMode="Auto"
     Title="Dotnet.Cblite.Inventory.Maui">
         
+    <!--
+    fix for iOS until this bug is fixed
+    https://github.com/dotnet/maui/issues/17965
+    -->
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <Grid
-                Padding="0, 100, 0, 0">
+                x:Name="FlyoutHeaderGrid"
+                HeightRequest="200"
+                MinimumHeightRequest="256">
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
-
+    <FlyoutItem Title="">
+        <ShellContent
+            Title=""
+            ContentTemplate="{DataTemplate local:ProjectsView}"
+            Route="Projects" />
+    </FlyoutItem>
     <FlyoutItem Title="Projects">
         <ShellContent
             Title="Projects"

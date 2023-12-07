@@ -6,9 +6,9 @@
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <Color x:Key="Primary">#EA2328</Color>
+    <Color x:Key="Secondary">#666666</Color>
+    <Color x:Key="Tertiary">#4287d6</Color>
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>
@@ -32,15 +32,36 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
-
-    <Color x:Key="Yellow100Accent">#F7B548</Color>
-    <Color x:Key="Yellow200Accent">#FFD590</Color>
-    <Color x:Key="Yellow300Accent">#FFE5B9</Color>
-    <Color x:Key="Cyan100Accent">#28C2D1</Color>
-    <Color x:Key="Cyan200Accent">#7BDDEF</Color>
-    <Color x:Key="Cyan300Accent">#C3F2F4</Color>
-    <Color x:Key="Blue100Accent">#3E8EED</Color>
-    <Color x:Key="Blue200Accent">#72ACF1</Color>
-    <Color x:Key="Blue300Accent">#A7CBF6</Color>
+    <Color x:Key="Primary100Accent">#ffcad0</Color>
+    <Color x:Key="Primary200Accent">#f39595</Color>
+    <Color x:Key="Primary300Accent">#ea6b6c</Color>
+    <Color x:Key="Primary400Accent">#f44647</Color>
+    <Color x:Key="Primary500Accent">#f93029</Color>
+    <Color x:Key="Primary600Accent">#ea232a</Color>
+    <Color x:Key="Primary700Accent">#d81424</Color>
+    <Color x:Key="Primary800Accent">#cb041c</Color>
+    <Color x:Key="Primary900Accent">#bd000e</Color>
+    <Color x:Key="Tertiary100Accent">#bfddf7</Color>
+    <Color x:Key="Tertiary200Accent">#98c9f2</Color>
+    <Color x:Key="Tertiary300Accent">#73b4eb</Color>
+    <Color x:Key="Tertiary400Accent">#5aa4e8</Color>
+    <Color x:Key="Tertiary500Accent">#4895e4</Color>
+    <Color x:Key="Tertiary600Accent">#4287d6</Color>
+    <Color x:Key="Tertiary700Accent">#3b75c3</Color>
+    <Color x:Key="Tertiary800Accent">#3465b1</Color>
+    <Color x:Key="Tertiary900Accent">#2a4791</Color> 
+    <Color x:Key="Orange400Accent">#fdc62b</Color>
+    <Color x:Key="Orange500Accent">#fdbd11</Color>
+    <Color x:Key="Orange600Accent">#fcaf0c</Color>
+    <Color x:Key="Orange700Accent">#fc9c0c</Color>
+    <Color x:Key="Orange800Accent">#fc8b0c</Color>
+    <Color x:Key="Orange900Accent">#fb6c0c</Color>
+    <Color x:Key="Pink100Accent">#f9bccc</Color>
+    <Color x:Key="Pink200Accent">#f591ab</Color>
+    <Color x:Key="Pink300Accent">#f0678a</Color>
+    <Color x:Key="Pink400Accent">#eb4972</Color>
+    <Color x:Key="Pink500Accent">#e7315b</Color>
+    <Color x:Key="Pink600Accent">#d62d58</Color>
+    <Color x:Key="Pink700Accent">#c02854</Color>
 
 </ResourceDictionary>
