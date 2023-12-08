@@ -3,7 +3,7 @@ using Android.Content;
 
 namespace Dotnet.Cblite.Inventory.MPShared.Services;
 
-public partial class DatabaseSeedService 
+public class DatabaseSeedService 
     : IDatabaseSeedService
 {
     private const string StartingWarehouseFilename = "startingWarehouses.zip";
@@ -16,7 +16,7 @@ public partial class DatabaseSeedService
 
     public async Task CopyDatabaseAsync(string targetDirectoryPath)
     {
-        if (_context != null)
+        if (_context.Assets != null)
         {
             Directory.CreateDirectory(targetDirectoryPath);
             var assetStream = _context.Assets.Open(StartingWarehouseFilename);

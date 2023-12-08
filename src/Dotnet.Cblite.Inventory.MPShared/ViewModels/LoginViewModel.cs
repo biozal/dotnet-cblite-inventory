@@ -25,6 +25,11 @@ public partial class LoginViewModel
         _authenticationService = authenticationService;
         
         WeakReferenceMessenger.Default.Register<AuthenticationMessage>(this, (r, m) => { ProcessAuthentication(m); });
+        
+        //default properties to empty strings
+        Username = string.Empty;
+        Password = string.Empty;
+        ErrorMessage = string.Empty;
     }
     
     [RelayCommand]
