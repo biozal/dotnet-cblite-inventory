@@ -1,10 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <!--
-      remove android because it's not working
-      <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
-    -->
-    <TargetFrameworks>net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
     <TargetFrameworks Condition="'$(OverrideTargetFrameworks)'!=''">$(OverrideTargetFrameworks)</TargetFrameworks>
     <SingleProject>true</SingleProject>
     <OutputType>Exe</OutputType>
@@ -12,7 +8,7 @@
     <ApplicationTitle>InventoryUno</ApplicationTitle>
     <!-- App Identifier -->
     <ApplicationId>com.companyname.inventoryuno</ApplicationId>
-    <ApplicationIdGuid>B477AD79-CED9-4929-9DC1-1BE3B773A280</ApplicationIdGuid>
+    <ApplicationIdGuid>D7DE2D0D-8C4E-442E-833C-7534259F13C9</ApplicationIdGuid>
     <!-- Versions -->
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <ApplicationVersion>1</ApplicationVersion>
@@ -25,23 +21,16 @@
     <UseInterpreter Condition="'$(Configuration)' == 'Debug' and $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'maccatalyst'">True</UseInterpreter>
     <IsUnoHead>true</IsUnoHead>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
-    <AndroidPackageFormat>apk</AndroidPackageFormat>
-    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
-    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
-  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Uno.WinUI" />
     <PackageReference Include="Uno.WinUI.Markup" />
     <PackageReference Include="Uno.Material.WinUI.Markup" />
     <PackageReference Include="Uno.Themes.WinUI.Markup" />
+    <PackageReference Include="CommunityToolkit.Mvvm" />
     <PackageReference Include="Uno.Material.WinUI" />
     <PackageReference Include="Uno.Toolkit.WinUI.Material" />
     <PackageReference Include="Uno.Toolkit.WinUI.Markup" />
-    <PackageReference Include="Uno.Extensions.Reactive.WinUI" />
-    <PackageReference Include="Uno.Extensions.Reactive.WinUI.Markup" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" />
     <PackageReference Include="Uno.Extensions.Logging.OSLog" />
     <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" />
@@ -50,6 +39,7 @@
   <Choose>
     <When Condition="$(IsAndroid)">
       <ItemGroup>
+
         <PackageReference Include="Xamarin.Google.Android.Material" />
         <PackageReference Include="Uno.UniversalImageLoader" />
       </ItemGroup>
@@ -86,6 +76,7 @@
     </When>
   </Choose>
   <ItemGroup>
+    <ProjectReference Include="..\..\Dotnet.Cblite.Inventory.MPShared\Dotnet.Cblite.Inventory.MPShared.csproj" />
     <ProjectReference Include="..\InventoryUno\InventoryUno.csproj" />
   </ItemGroup>
   <Import Project="..\InventoryUno.Base\base.props" />

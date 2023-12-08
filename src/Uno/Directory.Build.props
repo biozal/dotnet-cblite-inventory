@@ -42,13 +42,13 @@
     <When Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
       <PropertyGroup>
         <IsAndroid>true</IsAndroid>
-        <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion>29.0</SupportedOSPlatformVersion>
       </PropertyGroup>
     </When>
     <When Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
       <PropertyGroup>
         <IsIOS>true</IsIOS>
-        <SupportedOSPlatformVersion>14.2</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
       </PropertyGroup>
 
       <!--

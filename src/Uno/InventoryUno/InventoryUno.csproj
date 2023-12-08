@@ -18,15 +18,12 @@
     </PackageReference>
     <PackageReference Include="Uno.Material.WinUI.Markup" />
     <PackageReference Include="Uno.Themes.WinUI.Markup" />
+    <PackageReference Include="CommunityToolkit.Mvvm" />
     <PackageReference Include="Uno.Material.WinUI" />
     <PackageReference Include="Uno.Toolkit.WinUI.Material" />
     <PackageReference Include="Uno.Toolkit.WinUI.Markup" />
     <PackageReference Include="Uno.Extensions.Core.WinUI" />
-    <PackageReference Include="Uno.Extensions.Reactive.WinUI" />
-    <PackageReference Include="Uno.Extensions.Reactive.WinUI.Markup" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" />
-    <PackageReference Include="Uno.Extensions.Hosting.WinUI" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
 
 
@@ -68,9 +65,5 @@
 
   <ItemGroup>
     <UnoImage Include="Assets\**\*.svg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Dotnet.Cblite.Inventory.Shared\Dotnet.Cblite.Inventory.Shared.csproj" />
   </ItemGroup>
 </Project>

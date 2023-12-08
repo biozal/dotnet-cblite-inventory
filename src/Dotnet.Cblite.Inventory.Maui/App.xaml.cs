@@ -1,18 +1,19 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using Dotnet.Cblite.Inventory.Maui.Views;
 using Dotnet.Cblite.Inventory.MPShared.Messages;
+using Dotnet.Cblite.Inventory.MPShared.Services;
 
 namespace Dotnet.Cblite.Inventory.Maui;
 
 public partial class App 
 	: Application
 {
-	private readonly AppShell _appShell;
 	private readonly LoginView _loginView;
+	private readonly IAuthenticationService _authenticationService;
 	
-	public App(LoginView loginView, AppShell appShell)
+	public App(LoginView loginView, IAuthenticationService authenticationService)
 	{
-		_appShell = appShell;
+		_authenticationService = authenticationService;
 		_loginView = loginView;		
 		
 		InitializeComponent();
@@ -29,13 +30,11 @@ public partial class App
 		var userAuthMessage = message.Value;
 		if (userAuthMessage.Status == AuthenticationStatus.Authenticated)
 		{
-			MainPage = _appShell;
+			MainPage = new AppShell(_authenticationService);
 		}
 		else if (userAuthMessage.Status == AuthenticationStatus.SignedOut)
 		{
 			MainPage = _loginView;
-			
-			//TODO send message to database to close out of everything, including the replicator
 		}
 		
 	}

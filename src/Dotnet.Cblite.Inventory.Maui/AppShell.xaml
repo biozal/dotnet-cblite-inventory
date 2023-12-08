@@ -5,11 +5,11 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Dotnet.Cblite.Inventory.Maui.Views"
+    xmlns:helpers="clr-namespace:Dotnet.Cblite.Inventory.Maui.Helpers"
     FlyoutBehavior="Flyout"
     FlyoutHeaderBehavior="Fixed"
     FlyoutVerticalScrollMode="Auto"
     Title="Dotnet.Cblite.Inventory.Maui">
-        
     <!--
     TODO - fix for iOS until this bug is fixed
     https://github.com/dotnet/maui/issues/17965
@@ -24,46 +24,61 @@
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
     <FlyoutItem Title="Projects">
+        <FlyoutItem.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Project}"></FontImageSource>    
+        </FlyoutItem.Icon>
         <ShellContent
             Title="Projects"
             ContentTemplate="{DataTemplate local:ProjectsView}"
-            Route="Projects" />
+            Route="Projects">
+        </ShellContent>
     </FlyoutItem>
     <FlyoutItem Title="Developer">
+        <FlyoutItem.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Developer}"></FontImageSource>
+        </FlyoutItem.Icon>
         <ShellContent
             Title="Developer Options"
             ContentTemplate="{DataTemplate local:DeveloperMenuView}"
-            Route="DeveloperMenu" />
+            Route="DeveloperMenu">
+        </ShellContent>
     </FlyoutItem>
     <FlyoutItem Title="Replication">
+        <FlyoutItem.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Replicator}"></FontImageSource>
+        </FlyoutItem.Icon>
         <ShellContent
             Title="Replicator"
             ContentTemplate="{DataTemplate local:ReplicatorView}"
-            Route="Replicator" />
+            Route="Replicator">
+        </ShellContent>
     </FlyoutItem>
 
     <MenuItem 
         Text="Logout"
-        Clicked="Logout_Clicked" />
+        Clicked="Logout_Clicked">
+        <MenuItem.IconImageSource>
+            <FontImageSource FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Logout}"></FontImageSource>     
+        </MenuItem.IconImageSource>
+    </MenuItem>
     
     <!-- Shell Drawing Template
     https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/shell/flyout?view=net-maui-8.0  
     --> 
-    
-    <!--
     <Shell.MenuItemTemplate>
         <DataTemplate>
-            <Grid>
+            <Grid Padding="20, 0" ColumnSpacing="{OnPlatform Android=12, iOS=12, WinUI=16, MacCatalyst=16}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="{OnPlatform Android=54, iOS=50, WinUI=Auto, MacCatalyst=Auto}" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Image Source="{Binding Icon}"
                        Margin="5"
-                       HeightRequest="45" />
+                       HeightRequest="18" />
                 <Label Grid.Column="1"
                        Text="{Binding Text}"
-                       FontSize="{OnPlatform Android=14, iOS=14, MacCatalyst=20, WinUI=20}"
+                       Padding="0, 20"
+                       FontSize="{OnPlatform Android=14, iOS=14, MacCatalyst=28, WinUI=28}"
                        FontAttributes="{OnPlatform iOS=Bold, MacCatalyst=Bold}"
                        VerticalTextAlignment="Center" 
                        HorizontalOptions="{OnPlatform WinUI=Start}"
@@ -75,10 +90,11 @@
     
     <Shell.ItemTemplate>
         <DataTemplate x:Key="FlyoutTemplate">
-            <Grid x:Name="FlyoutItemLayout"
-                  HeightRequest="{OnPlatform 44, iOS=80, Android=50, MacCatalyst=75}"
-                  ColumnSpacing="{OnPlatform WinUI=0}"
-                  RowSpacing="{OnPlatform WinUI=0, iOS=20}">
+            <Grid 
+                x:Name="FlyoutItemLayout" 
+                Padding="20, 0" 
+                ColumnSpacing="{OnPlatform Android=12, iOS=12, WinUI=16, MacCatalyst=16}"
+                RowSpacing="{OnPlatform Android=6, iOS=6, WinUI=50, MacCatalyst=50}">
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
@@ -97,34 +113,27 @@
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </VisualStateManager.VisualStateGroups>
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="{OnPlatform Android=54, iOS=50, WinUI=Auto, MacCatalyst=Auto}" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"  />
                 </Grid.ColumnDefinitions>
-                <Image x:Name="FlyoutItemImage"
-                       Source="{Binding FlyoutIcon}"
-                       VerticalOptions="Center"
-                       HorizontalOptions="{OnPlatform Default=Center, WinUI=Start}"
-                       HeightRequest="{OnPlatform Android=24, iOS=22, WinUI=16}"
-                       WidthRequest="{OnPlatform Android=24, iOS=22, WinUI=16}">
-                    <Image.Margin>
-                        <OnPlatform x:TypeArguments="Thickness">
-                            <OnPlatform.Platforms>
-                                <On Platform="WinUI"
-                                    Value="12,0,12,0" />
-                            </OnPlatform.Platforms>
-                        </OnPlatform>
-                    </Image.Margin>
-                </Image>
+                
+                <Image Grid.Column="0" Source="{Binding Icon}"
+                       Margin="5"
+                       HeightRequest="{OnPlatform Android=12, iOS=12, MacCatalyst=16, WinUI=16}" /> 
+                
                 <Label x:Name="FlyoutItemLabel"
                        Grid.Column="1"
                        Text="{Binding Title}"
-                       FontSize="{OnPlatform Android=14, iOS=14, MacCatalyst=20, WinUI=20}"
+                       Padding="0, 20"
+                       FontSize="{OnPlatform Android=14, iOS=14, MacCatalyst=28, WinUI=28}"
                        FontAttributes="{OnPlatform iOS=Bold, MacCatalyst=Bold}"
                        HorizontalOptions="{OnPlatform WinUI=Start}"
                        HorizontalTextAlignment="{OnPlatform WinUI=Start}"
                        VerticalTextAlignment="Center">
                        
+                    <!--
                     <Label.TextColor>
                         <OnPlatform x:TypeArguments="Color">
                             <OnPlatform.Platforms>
@@ -149,11 +158,9 @@
                             </OnPlatform.Platforms>
                         </OnPlatform>
                     </Label.FontFamily>
-                    
-                    
+                -->
                 </Label>
             </Grid>
         </DataTemplate>
     </Shell.ItemTemplate>
-    -->
 </Shell>

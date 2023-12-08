@@ -27,8 +27,8 @@
                     <ImageButton
                        Command="{Binding SetDefaultUsernamePasswordCommand}"
                        Source="couchbase.png" 
-                       HeightRequest="80" 
-                       WidthRequest="80" />
+                       HeightRequest="{OnPlatform Android=88, iOS=88, MacCatalyst=132, WinUI=132}" 
+                       WidthRequest="{OnPlatform Android=80, iOS=80, MacCatalyst=120, WinUI=120}" />
                     <Entry
                         Keyboard="Email"
                         IsSpellCheckEnabled="False"
@@ -38,7 +38,8 @@
                     <Entry
                         IsPassword="True"
                         Placeholder="Password"
-                        Text="{Binding Password}" />
+                        Text="{Binding Password}">
+                    </Entry>
                     <Button
                         x:Name="Login"
                         Command="{Binding AuthenticateCommand}" 
@@ -46,7 +47,8 @@
                         BackgroundColor="#EC1218"
                         HeightRequest="60"
                         Text="Login"
-                        TextColor="#FBF6FD" />
+                        TextColor="#FBF6FD">
+                    </Button>
                    <Label
                        Text="{Binding ErrorMessage}"
                        Margin="0, 30, 0, 0"

@@ -64,12 +64,11 @@
     <PackageReference Include="Uno.WinUI.Markup" />
     <PackageReference Include="Uno.Material.WinUI.Markup" />
     <PackageReference Include="Uno.Themes.WinUI.Markup" />
+    <PackageReference Include="CommunityToolkit.Mvvm" />
     <PackageReference Include="Uno.Extensions.Logging.WebAssembly.Console" />
     <PackageReference Include="Uno.Material.WinUI" />
     <PackageReference Include="Uno.Toolkit.WinUI.Material" />
     <PackageReference Include="Uno.Toolkit.WinUI.Markup" />
-    <PackageReference Include="Uno.Extensions.Reactive.WinUI" />
-    <PackageReference Include="Uno.Extensions.Reactive.WinUI.Markup" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" />
   </ItemGroup>
   <ItemGroup>

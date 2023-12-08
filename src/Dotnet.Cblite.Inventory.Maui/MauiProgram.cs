@@ -20,7 +20,7 @@ public static class MauiProgram
 			.RegisterServices()
 			.ConfigureFonts(fonts =>
 			{
-				fonts.AddFont("FontAwesomeSolid.otf", "AwesomeSolid");
+				fonts.AddFont("FontAwesomeSolid.otf", "FontAwesomeSolid");
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
@@ -29,7 +29,6 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 		
-		builder.Services.AddTransient<AppShell>();
 		builder.Services.AddTransient<App>();
 		
 		return builder.Build();
