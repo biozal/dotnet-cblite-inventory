@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using Dotnet.Cblite.Inventory.Maui.Views;
-using Dotnet.Cblite.Inventory.Shared.Messages;
+using Dotnet.Cblite.Inventory.MPShared.Messages;
 
 namespace Dotnet.Cblite.Inventory.Maui;
 

@@ -1,10 +1,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
-using Dotnet.Cblite.Inventory.Shared.Messages;
-using Dotnet.Cblite.Inventory.Shared.Services;
+using Dotnet.Cblite.Inventory.MPShared.Messages;
+using Dotnet.Cblite.Inventory.MPShared.Services;
 
-namespace Dotnet.Cblite.Inventory.Maui.ViewModel;
+namespace Dotnet.Cblite.Inventory.MPShared.ViewModel;
 
 public partial class LoginViewModel 
     : ObservableObject

@@ -1,13 +1,13 @@
 using CommunityToolkit.Mvvm.Messaging;
-using Dotnet.Cblite.Inventory.Shared.Messages;
-using Dotnet.Cblite.Inventory.Shared.Services;
+using Dotnet.Cblite.Inventory.MPShared.Messages;
+using Dotnet.Cblite.Inventory.MPShared.Services;
 
 namespace Dotnet.Cblite.Inventory.Shared.Tests;
 
 public class AuthenticationServiceFixture 
     : IDisposable
 {
-    private bool isDisposed;
+    private bool _isDisposed;
     
     public IAuthenticationService? AuthenticationService { get; private set; } = new MockAuthenticationService();
     public IMessenger? Messenger { get; private set; } = new WeakReferenceMessenger();
@@ -20,7 +20,7 @@ public class AuthenticationServiceFixture
 
     protected virtual void Dispose(bool disposing)
     {
-        if (isDisposed) return;
+        if (_isDisposed) return;
 
         if (disposing)
         {
@@ -28,6 +28,6 @@ public class AuthenticationServiceFixture
             Messenger = null;
         }
 
-        isDisposed = true;
+        _isDisposed = true;
     }
 }

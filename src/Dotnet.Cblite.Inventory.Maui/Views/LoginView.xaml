@@ -3,11 +3,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.NavBarIsVisible="False"
-             xmlns:vm="clr-namespace:Dotnet.Cblite.Inventory.Maui.ViewModel;"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:viewModel="clr-namespace:Dotnet.Cblite.Inventory.MPShared.ViewModel;assembly=Dotnet.Cblite.Inventory.MPShared"
              Title="Login"
-             x:DataType="vm:LoginViewModel"
+             x:DataType="viewModel:LoginViewModel"
              x:Class="Dotnet.Cblite.Inventory.Maui.Views.LoginView">
     <ContentPage.Content>
         <ScrollView>

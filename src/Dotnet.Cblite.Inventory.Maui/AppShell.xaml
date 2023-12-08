@@ -11,24 +11,18 @@
     Title="Dotnet.Cblite.Inventory.Maui">
         
     <!--
-    fix for iOS until this bug is fixed
+    TODO - fix for iOS until this bug is fixed
     https://github.com/dotnet/maui/issues/17965
     -->
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid
-                x:Name="FlyoutHeaderGrid"
-                HeightRequest="200"
-                MinimumHeightRequest="256">
-            </Grid>
+            <VerticalStackLayout
+                Margin="0"
+                Padding="{OnPlatform iOS='20,42,20,100', MacCatalyst='20, 100, 20, 200', Default='20'}">
+                <Label Text="Your Name Here" />
+            </VerticalStackLayout>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
-    <FlyoutItem Title="">
-        <ShellContent
-            Title=""
-            ContentTemplate="{DataTemplate local:ProjectsView}"
-            Route="Projects" />
-    </FlyoutItem>
     <FlyoutItem Title="Projects">
         <ShellContent
             Title="Projects"

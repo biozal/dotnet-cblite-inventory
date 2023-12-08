@@ -1,13 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dotnet.Cblite.Inventory.Maui.ViewModel;
+using Dotnet.Cblite.Inventory.MPShared.ViewModel;
 
 namespace Dotnet.Cblite.Inventory.Maui.Views;
 
-public partial class LoginView : ContentPage
+public partial class LoginView
 {
     public LoginView(LoginViewModel viewModel)
     {

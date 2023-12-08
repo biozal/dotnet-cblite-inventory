@@ -1,10 +1,9 @@
-using Dotnet.Cblite.Inventory.Shared.Services;
 using Foundation;
 
-namespace Dotnet.Cblite.Inventory.Maui;
+namespace Dotnet.Cblite.Inventory.MPShared.Services;
 
-public class MacDatabaseSeedService 
-    : IDatabaseSeedService
+public partial class DatabaseSeedService
+   : IDatabaseSeedService
 {
     private const string StartingWarehouseFilename = "startingWarehouses.cblite2";
     
