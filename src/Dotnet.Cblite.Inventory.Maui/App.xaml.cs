@@ -31,6 +31,7 @@ public partial class App
 		if (userAuthMessage.Status == AuthenticationStatus.Authenticated)
 		{
 			MainPage = new AppShell(_authenticationService);
+			
 		}
 		else if (userAuthMessage.Status == AuthenticationStatus.SignedOut)
 		{

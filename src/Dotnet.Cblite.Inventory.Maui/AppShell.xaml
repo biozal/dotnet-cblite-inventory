@@ -17,15 +17,37 @@
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <VerticalStackLayout
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
                 Margin="0"
-                Padding="{OnPlatform iOS='20,100,20,100', MacCatalyst='20, 100, 20, 200', Default='20, 80, 20, 100'}">
-                <Label Text="Your Name Here" />
+                Padding="{OnPlatform iOS='0,0,0,100', MacCatalyst='0,0,0,200', Android='0, 0,0,100', WinUI='0,0,0,200'}">
+                <Frame
+                    BorderColor="{x:StaticResource Key=Primary}"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    CornerRadius="0"
+                    BackgroundColor="{x:StaticResource Key=Primary}"
+                    HeightRequest="{OnPlatform iOS=40, MacCatalyst=80, Android=40, WinUI=80}">
+                    <Label
+                        HeightRequest="{OnPlatform iOS=24}"
+                        FontSize="{OnPlatform Android=18, iOS=18, MacCatalyst=28, WinUI=28}"
+                        FontAttributes="{OnPlatform iOS=Bold, MacCatalyst=Bold}"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center"
+                        TextColor="White"
+                        Text="Inventory Demo">
+                    </Label>
+                </Frame>
             </VerticalStackLayout>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
     <FlyoutItem Title="Projects">
         <FlyoutItem.Icon>
-            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Project}"></FontImageSource>    
+            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid"
+                             Glyph="{x:Static helpers:FontAwesomeIcons.Project}">
+            </FontImageSource>
         </FlyoutItem.Icon>
         <ShellContent
             Title="Projects"
@@ -35,7 +57,9 @@
     </FlyoutItem>
     <FlyoutItem Title="Developer">
         <FlyoutItem.Icon>
-            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Developer}"></FontImageSource>
+            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid"
+                             Glyph="{x:Static helpers:FontAwesomeIcons.Developer}">
+            </FontImageSource>
         </FlyoutItem.Icon>
         <ShellContent
             Title="Developer Options"
@@ -45,7 +69,9 @@
     </FlyoutItem>
     <FlyoutItem Title="Replication">
         <FlyoutItem.Icon>
-            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Replicator}"></FontImageSource>
+            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid"
+                             Glyph="{x:Static helpers:FontAwesomeIcons.Replicator}">
+            </FontImageSource>
         </FlyoutItem.Icon>
         <ShellContent
             Title="Replicator"
@@ -54,17 +80,19 @@
         </ShellContent>
     </FlyoutItem>
 
-    <MenuItem 
+    <MenuItem
         Text="Logout"
         Clicked="Logout_Clicked">
         <MenuItem.IconImageSource>
-            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Logout}"></FontImageSource>     
+            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid"
+                             Glyph="{x:Static helpers:FontAwesomeIcons.Logout}">
+            </FontImageSource>
         </MenuItem.IconImageSource>
     </MenuItem>
-    
+
     <!-- Shell Drawing Template
     https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/shell/flyout?view=net-maui-8.0  
-    --> 
+    -->
     <Shell.MenuItemTemplate>
         <DataTemplate>
             <Grid Padding="20, 0" ColumnSpacing="{OnPlatform Android=12, iOS=12, WinUI=16, MacCatalyst=16}">
@@ -81,19 +109,18 @@
                        Padding="0, 20"
                        FontSize="{OnPlatform Android=14, iOS=14, MacCatalyst=28, WinUI=28}"
                        FontAttributes="{OnPlatform iOS=Bold, MacCatalyst=Bold}"
-                       VerticalTextAlignment="Center" 
+                       VerticalTextAlignment="Center"
                        HorizontalOptions="{OnPlatform WinUI=Start}"
-                       HorizontalTextAlignment="{OnPlatform WinUI=Start}"
-                       />
+                       HorizontalTextAlignment="{OnPlatform WinUI=Start}" />
             </Grid>
         </DataTemplate>
     </Shell.MenuItemTemplate>
-    
+
     <Shell.ItemTemplate>
         <DataTemplate x:Key="FlyoutTemplate">
-            <Grid 
-                x:Name="FlyoutItemLayout" 
-                Padding="20, 0" 
+            <Grid
+                x:Name="FlyoutItemLayout"
+                Padding="20, 0"
                 ColumnSpacing="{OnPlatform Android=12, iOS=12, WinUI=16, MacCatalyst=16}"
                 RowSpacing="{OnPlatform Android=6, iOS=6, WinUI=50, MacCatalyst=50}">
                 <VisualStateManager.VisualStateGroups>
@@ -114,16 +141,16 @@
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </VisualStateManager.VisualStateGroups>
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="{OnPlatform Android=54, iOS=50, WinUI=Auto, MacCatalyst=Auto}" />
-                    <ColumnDefinition Width="*"  />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                
+
                 <Image Grid.Column="0" Source="{Binding Icon}"
                        Margin="5"
-                       HeightRequest="{OnPlatform Android=12, iOS=12, MacCatalyst=16, WinUI=16}" /> 
-                
+                       HeightRequest="{OnPlatform Android=12, iOS=12, MacCatalyst=16, WinUI=16}" />
+
                 <Label x:Name="FlyoutItemLabel"
                        Grid.Column="1"
                        Text="{Binding Title}"
@@ -133,8 +160,7 @@
                        FontAttributes="{OnPlatform iOS=Bold, MacCatalyst=Bold}"
                        HorizontalOptions="{OnPlatform WinUI=Start}"
                        HorizontalTextAlignment="{OnPlatform WinUI=Start}"
-                       VerticalTextAlignment="Center"
-                       >
+                       VerticalTextAlignment="Center">
                 </Label>
             </Grid>
         </DataTemplate>
