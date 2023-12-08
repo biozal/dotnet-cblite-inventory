@@ -56,7 +56,6 @@
     <Color x:Key="Orange700Accent">#fc9c0c</Color>
     <Color x:Key="Orange800Accent">#fc8b0c</Color>
     <Color x:Key="Orange900Accent">#fb6c0c</Color>
-    <Color x:Key="Pink100Accent">#f9bccc</Color>
     <Color x:Key="Pink200Accent">#f591ab</Color>
     <Color x:Key="Pink300Accent">#f0678a</Color>
     <Color x:Key="Pink400Accent">#eb4972</Color>

@@ -25,7 +25,7 @@
     </Shell.FlyoutHeaderTemplate>
     <FlyoutItem Title="Projects">
         <FlyoutItem.Icon>
-            <FontImageSource FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Project}"></FontImageSource>    
+            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Project}"></FontImageSource>    
         </FlyoutItem.Icon>
         <ShellContent
             Title="Projects"
@@ -35,7 +35,7 @@
     </FlyoutItem>
     <FlyoutItem Title="Developer">
         <FlyoutItem.Icon>
-            <FontImageSource FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Developer}"></FontImageSource>
+            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Developer}"></FontImageSource>
         </FlyoutItem.Icon>
         <ShellContent
             Title="Developer Options"
@@ -45,7 +45,7 @@
     </FlyoutItem>
     <FlyoutItem Title="Replication">
         <FlyoutItem.Icon>
-            <FontImageSource FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Replicator}"></FontImageSource>
+            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Replicator}"></FontImageSource>
         </FlyoutItem.Icon>
         <ShellContent
             Title="Replicator"
@@ -58,7 +58,7 @@
         Text="Logout"
         Clicked="Logout_Clicked">
         <MenuItem.IconImageSource>
-            <FontImageSource FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Logout}"></FontImageSource>     
+            <FontImageSource Color="{AppThemeBinding Light=Black, Dark=White}" FontFamily="FontAwesomeSolid" Glyph="{x:Static helpers:FontAwesomeIcons.Logout}"></FontImageSource>     
         </MenuItem.IconImageSource>
     </MenuItem>
     
@@ -77,6 +77,7 @@
                        HeightRequest="18" />
                 <Label Grid.Column="1"
                        Text="{Binding Text}"
+                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
                        Padding="0, 20"
                        FontSize="{OnPlatform Android=14, iOS=14, MacCatalyst=28, WinUI=28}"
                        FontAttributes="{OnPlatform iOS=Bold, MacCatalyst=Bold}"
@@ -107,7 +108,7 @@
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor"
-                                            Value="#EC1218" />
+                                            Value="{AppThemeBinding Light=#f591ab, Dark=#EC1218}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -127,21 +128,14 @@
                        Grid.Column="1"
                        Text="{Binding Title}"
                        Padding="0, 20"
+                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
                        FontSize="{OnPlatform Android=14, iOS=14, MacCatalyst=28, WinUI=28}"
                        FontAttributes="{OnPlatform iOS=Bold, MacCatalyst=Bold}"
                        HorizontalOptions="{OnPlatform WinUI=Start}"
                        HorizontalTextAlignment="{OnPlatform WinUI=Start}"
-                       VerticalTextAlignment="Center">
-                       
+                       VerticalTextAlignment="Center"
+                       >
                     <!--
-                    <Label.TextColor>
-                        <OnPlatform x:TypeArguments="Color">
-                            <OnPlatform.Platforms>
-                                <On Platform="Android"
-                                    Value="{AppThemeBinding Light=Black, Dark=White}" />
-                            </OnPlatform.Platforms>
-                        </OnPlatform>
-                    </Label.TextColor>
                     <Label.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <OnPlatform.Platforms>
