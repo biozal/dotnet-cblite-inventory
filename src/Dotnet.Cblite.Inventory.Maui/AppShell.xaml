@@ -18,7 +18,7 @@
         <DataTemplate>
             <VerticalStackLayout
                 Margin="0"
-                Padding="{OnPlatform iOS='20,42,20,100', MacCatalyst='20, 100, 20, 200', Default='20'}">
+                Padding="{OnPlatform iOS='20,100,20,100', MacCatalyst='20, 100, 20, 200', Default='20, 80, 20, 100'}">
                 <Label Text="Your Name Here" />
             </VerticalStackLayout>
         </DataTemplate>
