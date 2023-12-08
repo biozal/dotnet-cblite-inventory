@@ -135,24 +135,6 @@
                        HorizontalTextAlignment="{OnPlatform WinUI=Start}"
                        VerticalTextAlignment="Center"
                        >
-                    <!--
-                    <Label.Margin>
-                        <OnPlatform x:TypeArguments="Thickness">
-                            <OnPlatform.Platforms>
-                                <On Platform="Android"
-                                    Value="20, 0, 0, 0" />
-                            </OnPlatform.Platforms>
-                        </OnPlatform>
-                    </Label.Margin>
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <OnPlatform.Platforms>
-                                <On Platform="Android"
-                                    Value="sans-serif-medium" />
-                            </OnPlatform.Platforms>
-                        </OnPlatform>
-                    </Label.FontFamily>
-                -->
                 </Label>
             </Grid>
         </DataTemplate>

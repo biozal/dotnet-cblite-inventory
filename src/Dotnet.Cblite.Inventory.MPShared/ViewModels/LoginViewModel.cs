@@ -60,6 +60,8 @@ public partial class LoginViewModel
         }
         else if (userAuthMessage.Status == AuthenticationStatus.Authenticated)
         {
+            Username = string.Empty;
+            Password = string.Empty;
             ErrorMessage = string.Empty;
         }
     }
