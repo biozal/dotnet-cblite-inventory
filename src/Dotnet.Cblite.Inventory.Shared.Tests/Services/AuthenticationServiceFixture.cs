@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.Messaging;
-using Dotnet.Cblite.Inventory.MPShared.Messages;
-using Dotnet.Cblite.Inventory.MPShared.Services;
+using Dotnet.Cblite.Inventory.Messages;
+using Dotnet.Cblite.Inventory.Services;
 
 namespace Dotnet.Cblite.Inventory.Shared.Tests;
 

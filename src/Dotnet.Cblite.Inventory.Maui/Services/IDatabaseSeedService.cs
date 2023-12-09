@@ -1,4 +1,4 @@
-namespace Dotnet.Cblite.Inventory.MPShared.Services;
+namespace Dotnet.Cblite.Inventory.Services;
 
 public interface IDatabaseSeedService
 {

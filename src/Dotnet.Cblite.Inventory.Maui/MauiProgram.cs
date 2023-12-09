@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Maui;
-using Dotnet.Cblite.Inventory.MPShared.ViewModel;
+using Dotnet.Cblite.Inventory.ViewModel;
 using Dotnet.Cblite.Inventory.Maui.Views;
-using Dotnet.Cblite.Inventory.MPShared.Services;
+using Dotnet.Cblite.Inventory.Services;
 using Microsoft.Extensions.Logging;
 
 namespace Dotnet.Cblite.Inventory.Maui;
@@ -37,8 +37,15 @@ public static class MauiProgram
 	private static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
 	{
 		mauiAppBuilder.Services.AddSingleton<IAuthenticationService, MockAuthenticationService>();
-		mauiAppBuilder.Services.AddSingleton<IDatabaseSeedService, DatabaseSeedService>();
-		
+		#if IOS 
+			mauiAppBuilder.Services.AddSingleton<IDatabaseSeedService, DatabaseSeedServiceMaciOS>();
+		#elif ANDROID	
+			mauiAppBuilder.Services.AddSingleton<IDatabaseSeedService, DatabaseSeedServiceAndroid>();
+		#elif MACCATALYST
+			mauiAppBuilder.Services.AddSingleton<IDatabaseSeedService, DatabaseSeedServiceMaciOS>();
+		#elif WINDOWS
+			mauiAppBuilder.Services.AddSingleton<IDatabaseSeedService, DatabaseSeedServiceWindows>();
+		#endif
 		return mauiAppBuilder;	
 	}
 

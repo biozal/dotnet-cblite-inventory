@@ -1,13 +1,13 @@
 using Windows.ApplicationModel;
 using Windows.Storage;
 
-namespace Dotnet.Cblite.Inventory.MPShared.Services;
+namespace Dotnet.Cblite.Inventory.Services;
 
 /// <summary>
 /// The implementation of <see cref="IDatabaseSeedService"/> that copies a prebuilt
 /// database from the Assets folder
 /// </summary>
-public sealed class DatabaseSeedService : IDatabaseSeedService
+public class DatabaseSeedServiceWindows : IDatabaseSeedService
 {
     private const string StartingWarehouseFilename = "startingWarehouses.cblite2";
 

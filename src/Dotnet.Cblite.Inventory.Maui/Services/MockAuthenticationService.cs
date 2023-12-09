@@ -1,10 +1,10 @@
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.Messaging;
-using Dotnet.Cblite.Inventory.MPShared.Messages;
-using Dotnet.Cblite.Inventory.MPShared.Models;
+using Dotnet.Cblite.Inventory.Messages;
+using Dotnet.Cblite.Inventory.Models;
 
 
-namespace Dotnet.Cblite.Inventory.MPShared.Services;
+namespace Dotnet.Cblite.Inventory.Services;
 
 
 public class MockAuthenticationService

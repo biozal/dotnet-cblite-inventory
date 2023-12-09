@@ -4,7 +4,7 @@ using Couchbase.Lite.Logging;
 using Couchbase.Lite.Sync;
 using Microsoft.Maui.Devices;
 
-namespace Dotnet.Cblite.Inventory.MPShared.Data;
+namespace Dotnet.Cblite.Inventory.Data;
 
 public class DatabaseManager 
     : IDisposable

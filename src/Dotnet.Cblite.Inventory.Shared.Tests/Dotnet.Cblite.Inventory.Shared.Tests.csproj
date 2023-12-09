@@ -30,6 +30,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Dotnet.Cblite.Inventory.MPShared\Dotnet.Cblite.Inventory.MPShared.csproj" />
+      <ProjectReference Include="..\Dotnet.Cblite.Inventory.Maui\Dotnet.Cblite.Inventory.Maui.csproj" />
     </ItemGroup>
 </Project>

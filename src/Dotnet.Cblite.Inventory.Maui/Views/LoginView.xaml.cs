@@ -1,4 +1,4 @@
-using Dotnet.Cblite.Inventory.MPShared.ViewModel;
+using Dotnet.Cblite.Inventory.ViewModel;
 
 namespace Dotnet.Cblite.Inventory.Maui.Views;
 

@@ -1,15 +1,15 @@
 using System.IO.Compression;
 using Android.Content;
 
-namespace Dotnet.Cblite.Inventory.MPShared.Services;
+namespace Dotnet.Cblite.Inventory.Services;
 
-public class DatabaseSeedService 
+public class DatabaseSeedServiceAndroid
     : IDatabaseSeedService
 {
     private const string StartingWarehouseFilename = "startingWarehouses.zip";
     private readonly Context _context;
 
-    public DatabaseSeedService(Context context)
+    public DatabaseSeedServiceAndroid(Context context)
     {
         _context = context;
     }
