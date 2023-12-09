@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
@@ -53,8 +53,10 @@
 		<None Include="**\*.Windows.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Folder Include="Services\Android\" />
 	  <Folder Include="Services\iOS\" />
 	  <Folder Include="Services\MacCatalyst\" />
+	  <Folder Include="Services\MaciOS\" />
 	  <Folder Include="Services\Windows\" />
 	</ItemGroup>
 

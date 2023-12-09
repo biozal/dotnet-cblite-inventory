@@ -11,36 +11,37 @@
              x:Class="Dotnet.Cblite.Inventory.Maui.Views.LoginView">
     <ContentPage.Content>
         <ScrollView>
-            <Grid>
-                <VerticalStackLayout 
+            <VerticalStackLayout 
                     VerticalOptions="Center">
-                    <VerticalStackLayout.Spacing>
-                        <OnPlatform x:TypeArguments="system:Double" Default="30">
-                            <On Platform="MacCatalyst" Value="50"/>
-                        </OnPlatform>
-                    </VerticalStackLayout.Spacing>
-                    <VerticalStackLayout.Padding>
-                        <OnPlatform x:TypeArguments="Thickness" Default="30, 0">
-                            <On Platform="MacCatalyst" Value="300, 0"/>
-                        </OnPlatform>
-                    </VerticalStackLayout.Padding>
-                    <ImageButton
+                <VerticalStackLayout.Spacing>
+                    <OnPlatform x:TypeArguments="system:Double" Default="30">
+                        <On Platform="MacCatalyst" Value="50"/>
+                    </OnPlatform>
+                </VerticalStackLayout.Spacing>
+                <VerticalStackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" Default="30, 0">
+                        <On Platform="MacCatalyst" Value="300, 0"/>
+                        <On Platform="WinUI" Value="400, 0"/>
+                    </OnPlatform>
+                </VerticalStackLayout.Padding>
+                <ImageButton
+                       BackgroundColor="Transparent"
                        Command="{Binding SetDefaultUsernamePasswordCommand}"
                        Source="couchbase.png" 
-                       HeightRequest="{OnPlatform Android=88, iOS=88, MacCatalyst=132, WinUI=132}" 
-                       WidthRequest="{OnPlatform Android=80, iOS=80, MacCatalyst=120, WinUI=120}" />
-                    <Entry
+                       HeightRequest="{OnPlatform Android=88, iOS=88, MacCatalyst=132, WinUI=88}" 
+                       WidthRequest="{OnPlatform Android=80, iOS=80, MacCatalyst=120, WinUI=80}" />
+                <Entry
                         Keyboard="Email"
                         IsSpellCheckEnabled="False"
                         Placeholder="Email"
                         Text="{Binding Username}">
-                    </Entry>
-                    <Entry
+                </Entry>
+                <Entry
                         IsPassword="True"
                         Placeholder="Password"
                         Text="{Binding Password}">
-                    </Entry>
-                    <Button
+                </Entry>
+                <Button
                         x:Name="Login"
                         Command="{Binding AuthenticateCommand}" 
                         Margin="0,30,0,0"
@@ -48,13 +49,12 @@
                         HeightRequest="60"
                         Text="Login"
                         TextColor="#FBF6FD">
-                    </Button>
-                   <Label
+                </Button>
+                <Label
                        Text="{Binding ErrorMessage}"
                        Margin="0, 30, 0, 0"
                        />
-                </VerticalStackLayout>
-            </Grid>
+            </VerticalStackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

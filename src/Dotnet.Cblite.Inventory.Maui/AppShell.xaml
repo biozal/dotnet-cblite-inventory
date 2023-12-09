@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <Shell
     x:Class="Dotnet.Cblite.Inventory.Maui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -95,9 +94,11 @@
     -->
     <Shell.MenuItemTemplate>
         <DataTemplate>
-            <Grid Padding="20, 0" ColumnSpacing="{OnPlatform Android=12, iOS=12, WinUI=16, MacCatalyst=16}">
+            <Grid 
+                Padding="20, 0" 
+                ColumnSpacing="{OnPlatform Android=12, iOS=12, WinUI=16, MacCatalyst=16}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="{OnPlatform Android=54, iOS=50, WinUI=Auto, MacCatalyst=Auto}" />
+                    <ColumnDefinition Width="{OnPlatform Android=54, iOS=50, WinUI=54, MacCatalyst=Auto}" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Image Source="{Binding Icon}"
@@ -117,7 +118,7 @@
     </Shell.MenuItemTemplate>
 
     <Shell.ItemTemplate>
-        <DataTemplate x:Key="FlyoutTemplate">
+        <DataTemplate>
             <Grid
                 x:Name="FlyoutItemLayout"
                 Padding="20, 0"
@@ -143,11 +144,12 @@
                 </VisualStateManager.VisualStateGroups>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="{OnPlatform Android=54, iOS=50, WinUI=Auto, MacCatalyst=Auto}" />
+                    <ColumnDefinition Width="{OnPlatform Android=54, iOS=50, WinUI=54, MacCatalyst=Auto}" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="0" Source="{Binding Icon}"
+                <Image 
+                    Grid.Column="0" Source="{Binding Icon}"
                        Margin="5"
                        HeightRequest="{OnPlatform Android=12, iOS=12, MacCatalyst=16, WinUI=16}" />
 

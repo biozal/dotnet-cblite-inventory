@@ -1,10 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Cblite.Inventory.Maui", "src\Dotnet.Cblite.Inventory.Maui\Dotnet.Cblite.Inventory.Maui.csproj", "{B58DDCC7-5C5D-47BF-9246-F1957D205267}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotnet.Cblite.Inventory.Maui", "src\Dotnet.Cblite.Inventory.Maui\Dotnet.Cblite.Inventory.Maui.csproj", "{B58DDCC7-5C5D-47BF-9246-F1957D205267}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Cblite.Inventory.Shared.Tests", "src\Dotnet.Cblite.Inventory.Shared.Tests\Dotnet.Cblite.Inventory.Shared.Tests.csproj", "{7FEC267A-3A25-45B4-AF7C-F852D716076A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotnet.Cblite.Inventory.Shared.Tests", "src\Dotnet.Cblite.Inventory.Shared.Tests\Dotnet.Cblite.Inventory.Shared.Tests.csproj", "{7FEC267A-3A25-45B4-AF7C-F852D716076A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Cblite.Inventory.MPShared", "src\Dotnet.Cblite.Inventory.MPShared\Dotnet.Cblite.Inventory.MPShared.csproj", "{F68FFD4A-C48B-45DF-B76E-8B777473ABBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotnet.Cblite.Inventory.MPShared", "src\Dotnet.Cblite.Inventory.MPShared\Dotnet.Cblite.Inventory.MPShared.csproj", "{F68FFD4A-C48B-45DF-B76E-8B777473ABBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,6 +15,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B58DDCC7-5C5D-47BF-9246-F1957D205267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B58DDCC7-5C5D-47BF-9246-F1957D205267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B58DDCC7-5C5D-47BF-9246-F1957D205267}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B58DDCC7-5C5D-47BF-9246-F1957D205267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B58DDCC7-5C5D-47BF-9246-F1957D205267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B58DDCC7-5C5D-47BF-9246-F1957D205267}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{7FEC267A-3A25-45B4-AF7C-F852D716076A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FEC267A-3A25-45B4-AF7C-F852D716076A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FEC267A-3A25-45B4-AF7C-F852D716076A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -20,11 +29,11 @@ Global
 		{F68FFD4A-C48B-45DF-B76E-8B777473ABBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F68FFD4A-C48B-45DF-B76E-8B777473ABBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F68FFD4A-C48B-45DF-B76E-8B777473ABBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B58DDCC7-5C5D-47BF-9246-F1957D205267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-    	{B58DDCC7-5C5D-47BF-9246-F1957D205267}.Debug|Any CPU.Build.0 = Debug|Any CPU
-       	{B58DDCC7-5C5D-47BF-9246-F1957D205267}.Release|Any CPU.ActiveCfg = Release|Any CPU
-        {B58DDCC7-5C5D-47BF-9246-F1957D205267}.Release|Any CPU.Build.0 = Release|Any CPU
-        {B58DDCC7-5C5D-47BF-9246-F1957D205267}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-        {B58DDCC7-5C5D-47BF-9246-F1957D205267}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B15841B1-9136-41FE-8744-27B11DA8FD9E}
 	EndGlobalSection
 EndGlobal
