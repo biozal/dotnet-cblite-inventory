@@ -1,3 +1,5 @@
+using System.IO;
+using System.Threading.Tasks;
 using Foundation;
 
 namespace Dotnet.Cblite.Inventory.Services;

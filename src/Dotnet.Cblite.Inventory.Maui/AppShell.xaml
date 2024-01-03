@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <Shell
     x:Class="Dotnet.Cblite.Inventory.Maui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:local="clr-namespace:Dotnet.Cblite.Inventory.Maui.Views"
     xmlns:helpers="clr-namespace:Dotnet.Cblite.Inventory.Maui.Helpers"
     FlyoutBehavior="Flyout"
@@ -19,7 +21,7 @@
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill"
                 Margin="0"
-                Padding="{OnPlatform iOS='0,0,0,100', MacCatalyst='0,0,0,200', Android='0, 0,0,100', WinUI='0,0,0,200'}">
+                Padding="{OnPlatform iOS='0,0,0,70', MacCatalyst='0,0,0,200', Android='0, 0,0,70', WinUI='0,0,0,200'}">
                 <Frame
                     BorderColor="{x:StaticResource Key=Primary}"
                     HorizontalOptions="Fill"
@@ -39,6 +41,51 @@
                         Text="Inventory Demo">
                     </Label>
                 </Frame>
+                <Grid 
+                    Margin="16, 40, 0, 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <toolkit:AvatarView
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        ImageSource="phprofile.png"
+                             Grid.Column="0"
+                             Grid.Row="0"
+                             Grid.RowSpan="2"
+                             WidthRequest="70"
+                             HeightRequest="70">
+                    </toolkit:AvatarView>
+                    <Label
+                        Padding="16, 4, 0, 0"
+                        Text="Name: "
+                        Grid.Column="1"
+                        Grid.Row="0">
+                    </Label>
+                    <Label
+                        Padding="16, 0, 0, 0"
+                        Text="Email: "
+                        Grid.Column="1"
+                        Grid.Row="1">
+                    </Label>
+                    <Button
+                        HeightRequest="36"
+                        FontSize="10"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="Update Profile">
+                    </Button>
+                </Grid>
+                <BoxView Margin="16, 0, 0, 10" HeightRequest="1" Color="Grey" HorizontalOptions="FillAndExpand" />
             </VerticalStackLayout>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
@@ -94,8 +141,8 @@
     -->
     <Shell.MenuItemTemplate>
         <DataTemplate>
-            <Grid 
-                Padding="20, 0" 
+            <Grid
+                Padding="20, 0"
                 ColumnSpacing="{OnPlatform Android=12, iOS=12, WinUI=16, MacCatalyst=16}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="{OnPlatform Android=54, iOS=50, WinUI=54, MacCatalyst=Auto}" />
@@ -148,10 +195,10 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Image 
+                <Image
                     Grid.Column="0" Source="{Binding Icon}"
-                       Margin="5"
-                       HeightRequest="{OnPlatform Android=12, iOS=12, MacCatalyst=16, WinUI=16}" />
+                    Margin="5"
+                    HeightRequest="{OnPlatform Android=12, iOS=12, MacCatalyst=16, WinUI=16}" />
 
                 <Label x:Name="FlyoutItemLabel"
                        Grid.Column="1"
