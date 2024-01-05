@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using Dotnet.Cblite.Inventory.Maui.ViewModels;
 using Dotnet.Cblite.Inventory.ViewModel;
 using Dotnet.Cblite.Inventory.Maui.Views;
 using Dotnet.Cblite.Inventory.Services;
@@ -71,6 +72,7 @@ public static class MauiProgram
 	
 	private static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
 	{
+		mauiAppBuilder.Services.AddTransient<AppShellViewModel>();
 		mauiAppBuilder.Services.AddTransient<LoginViewModel>();
 		mauiAppBuilder.Services.AddTransient<ProjectsViewModel>();
 		mauiAppBuilder.Services.AddTransient<ProjectViewModel>();

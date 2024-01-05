@@ -1,5 +1,6 @@
 ﻿using System;
 using CommunityToolkit.Mvvm.Messaging;
+using Dotnet.Cblite.Inventory.Maui.ViewModels;
 using Dotnet.Cblite.Inventory.Maui.Views;
 using Dotnet.Cblite.Inventory.Messages;
 using Dotnet.Cblite.Inventory.Services;
@@ -9,12 +10,18 @@ namespace Dotnet.Cblite.Inventory.Maui;
 
 public partial class AppShell : Shell
 {
-    private readonly IAuthenticationService _authenticationService;
-
-    public AppShell(IAuthenticationService authenticationService)
+    private readonly AppShellViewModel _viewModel;
+    public string FullName => "Not Set";
+    public string EmailAddress => "Not Set";
+    public ImageSource ProfileImageName => "phprofile.png";
+    
+    public AppShell(
+        AppShellViewModel viewModel)
     {
-        _authenticationService = authenticationService;
-
+        _viewModel = viewModel;
+        
+        BindingContext = this;
+        
         InitializeComponent();
 
         //setup routes
@@ -36,7 +43,7 @@ public partial class AppShell : Shell
         WeakReferenceMessenger.Default.Send(
             new AuthenticationMessage(
                 new UserAuthenticationStatus(AuthenticationStatus.SignedOut,
-                    _authenticationService.CurrentUser?.Username ?? string.Empty)
+                    _viewModel.CurrentUser?.Username ?? string.Empty)
             )
         );
     }

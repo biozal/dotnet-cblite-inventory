@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
+using Dotnet.Cblite.Inventory.Maui.ViewModels;
 using Dotnet.Cblite.Inventory.Maui.Views;
 using Dotnet.Cblite.Inventory.Messages;
 using Dotnet.Cblite.Inventory.Services;
@@ -9,11 +10,13 @@ public partial class App
 	: Application
 {
 	private readonly LoginView _loginView;
-	private readonly IAuthenticationService _authenticationService;
+	private readonly AppShellViewModel _appShellViewModel;
 	
-	public App(LoginView loginView, IAuthenticationService authenticationService)
+	public App(
+		AppShellViewModel appShellViewModel,
+		LoginView loginView)
 	{
-		_authenticationService = authenticationService;
+		_appShellViewModel = appShellViewModel;
 		_loginView = loginView;		
 		
 		InitializeComponent();
@@ -30,7 +33,7 @@ public partial class App
 		var userAuthMessage = message.Value;
 		if (userAuthMessage.Status == AuthenticationStatus.Authenticated)
 		{
-			MainPage = new AppShell(_authenticationService);
+			MainPage = new AppShell(_appShellViewModel);
 			
 		}
 		else if (userAuthMessage.Status == AuthenticationStatus.SignedOut)

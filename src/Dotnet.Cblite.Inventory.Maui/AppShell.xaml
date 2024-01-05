@@ -7,11 +7,17 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:local="clr-namespace:Dotnet.Cblite.Inventory.Maui.Views"
     xmlns:helpers="clr-namespace:Dotnet.Cblite.Inventory.Maui.Helpers"
-    FlyoutBehavior="Flyout"
+    
+    xmlns:viewModel="clr-namespace:Dotnet.Cblite.Inventory.Maui.ViewModels;"
+    FlyoutBehavior="{OnPlatform iOS='Flyout', MacCatalyst='Locked', Android='Flyout', WinUI='Locked'}"
     FlyoutHeaderBehavior="Fixed"
     FlyoutVerticalScrollMode="Auto"
     Title="Dotnet.Cblite.Inventory.Maui">
     <!--
+    
+    set this in the main tag
+    x:DataType="viewModel:AppShellViewModel"
+    
     TODO - fix for iOS until this bug is fixed
     https://github.com/dotnet/maui/issues/17965
     -->
@@ -21,17 +27,16 @@
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill"
                 Margin="0"
-                Padding="{OnPlatform iOS='0,0,0,70', MacCatalyst='0,0,0,200', Android='0, 0,0,70', WinUI='0,0,0,200'}">
+                Padding="{OnPlatform iOS='0,0,0,70', MacCatalyst='0,0,0,180', Android='0, 0,0,70', WinUI='0,0,0,200'}">
                 <Frame
                     BorderColor="{x:StaticResource Key=Primary}"
                     HorizontalOptions="Fill"
                     VerticalOptions="Fill"
                     CornerRadius="0"
                     BackgroundColor="{x:StaticResource Key=Primary}"
-                    HeightRequest="{OnPlatform iOS=40, MacCatalyst=80, Android=40, WinUI=80}">
+                    HeightRequest="{OnPlatform iOS=44, MacCatalyst=51, Android=40, WinUI=56}">
                     <Label
-                        HeightRequest="{OnPlatform iOS=24}"
-                        FontSize="{OnPlatform Android=18, iOS=18, MacCatalyst=28, WinUI=28}"
+                        HeightRequest="{OnPlatform iOS=24, MacCatalyst=32, Android=24, WinUI=32}"
                         FontAttributes="{OnPlatform iOS=Bold, MacCatalyst=Bold}"
                         HorizontalOptions="Start"
                         HorizontalTextAlignment="Start"
@@ -55,22 +60,22 @@
                     <toolkit:AvatarView
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        ImageSource="phprofile.png"
+                        ImageSource="{Binding ProfileImageName}"
                              Grid.Column="0"
                              Grid.Row="0"
                              Grid.RowSpan="2"
-                             WidthRequest="70"
-                             HeightRequest="70">
+                             WidthRequest="64"
+                             HeightRequest="64">
                     </toolkit:AvatarView>
                     <Label
                         Padding="16, 4, 0, 0"
-                        Text="Name: "
+                        Text="{Binding FullName}"
                         Grid.Column="1"
                         Grid.Row="0">
                     </Label>
                     <Label
                         Padding="16, 0, 0, 0"
-                        Text="Email: "
+                        Text="{Binding EmailAddress}"
                         Grid.Column="1"
                         Grid.Row="1">
                     </Label>
@@ -135,7 +140,6 @@
             </FontImageSource>
         </MenuItem.IconImageSource>
     </MenuItem>
-
     <!-- Shell Drawing Template
     https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/shell/flyout?view=net-maui-8.0  
     -->
