@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Dotnet.Cblite.Inventory.ViewModel;
+namespace Dotnet.Cblite.Inventory.Maui.ViewModels;
 
 public partial class ProjectsViewModel
     : ObservableObject

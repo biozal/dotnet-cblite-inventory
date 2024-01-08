@@ -1,6 +1,9 @@
-namespace Dotnet.Cblite.Inventory.ViewModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-public class DeveloperMenuViewModel
+namespace Dotnet.Cblite.Inventory.Maui.ViewModels;
+
+public partial class DeveloperMenuViewModel
+ : ObservableObject
 {
     
 }

@@ -1,6 +1,9 @@
-namespace Dotnet.Cblite.Inventory.ViewModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-public class DeveloperLogsViewModel
+namespace Dotnet.Cblite.Inventory.Maui.ViewModels;
+
+public partial class DeveloperLogsViewModel
+: ObservableObject
 {
     
 }

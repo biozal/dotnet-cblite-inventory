@@ -5,9 +5,9 @@
              Shell.NavBarIsVisible="False"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
-             xmlns:viewModel="clr-namespace:Dotnet.Cblite.Inventory.ViewModel;"
+             xmlns:viewModels="clr-namespace:Dotnet.Cblite.Inventory.Maui.ViewModels"
              Title="Login"
-             x:DataType="viewModel:LoginViewModel"
+             x:DataType="viewModels:LoginViewModel"
              x:Class="Dotnet.Cblite.Inventory.Maui.Views.LoginView">
     <ContentPage.Content>
         <ScrollView>

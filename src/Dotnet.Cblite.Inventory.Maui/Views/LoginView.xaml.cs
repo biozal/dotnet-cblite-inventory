@@ -1,4 +1,4 @@
-using Dotnet.Cblite.Inventory.ViewModel;
+using LoginViewModel = Dotnet.Cblite.Inventory.Maui.ViewModels.LoginViewModel;
 
 namespace Dotnet.Cblite.Inventory.Maui.Views;
 
