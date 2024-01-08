@@ -70,23 +70,29 @@
                     <Label
                         Padding="16, 4, 0, 0"
                         Text="{Binding FullName}"
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}"
                         Grid.Column="1"
                         Grid.Row="0">
                     </Label>
                     <Label
                         Padding="16, 0, 0, 0"
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}"
                         Text="{Binding EmailAddress}"
                         Grid.Column="1"
                         Grid.Row="1">
                     </Label>
                     <Button
-                        HeightRequest="36"
-                        FontSize="10"
+                        HeightRequest="32"
+                        Padding="10, 0"
+                        Margin="0, 0"
+                        FontSize="14"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
                         Grid.Row="2"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
+                        BackgroundColor="{x:StaticResource Key=Primary}"
+                        TextColor="White"
                         Text="Update Profile">
                     </Button>
                 </Grid>

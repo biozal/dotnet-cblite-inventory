@@ -11,9 +11,9 @@ namespace Dotnet.Cblite.Inventory.Maui;
 public partial class AppShell : Shell
 {
     private readonly AppShellViewModel _viewModel;
-    public string FullName => "Not Set";
-    public string EmailAddress => "Not Set";
-    public ImageSource ProfileImageName => "phprofile.png";
+    public string FullName => _viewModel.FullName;
+    public string EmailAddress => _viewModel.EmailAddress;
+    public ImageSource ProfileImageName => _viewModel.ProfileImageName; 
     
     public AppShell(
         AppShellViewModel viewModel)
