@@ -1,7 +1,7 @@
 using System.IO.Compression;
 using Android.Content;
 
-namespace Dotnet.Cblite.Inventory.Services;
+namespace Dotnet.Cblite.Inventory.Maui.Services;
 
 public class DatabaseSeedServiceAndroid
     : IDatabaseSeedService

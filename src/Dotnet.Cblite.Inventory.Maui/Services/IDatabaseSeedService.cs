@@ -1,4 +1,4 @@
-namespace Dotnet.Cblite.Inventory.Services;
+namespace Dotnet.Cblite.Inventory.Maui.Services;
 
 public interface IDatabaseSeedService
 {

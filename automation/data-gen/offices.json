@@ -1,0 +1,14 @@
+[
+	{
+		"officeId": "office::santaclara",
+		"name": "Santa Clara"
+	},
+	{
+		"officeId": "office::atlanta",
+		"name": "Atlanta"
+	},
+	{
+		"officeId": "office::nyc",
+		"name": "New York City"
+	}
+]

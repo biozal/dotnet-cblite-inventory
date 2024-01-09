@@ -1,5 +1,5 @@
 using CommunityToolkit.Mvvm.Messaging;
-using Dotnet.Cblite.Inventory.Messages;
+using Dotnet.Cblite.Inventory.Maui.Services;
 using Dotnet.Cblite.Inventory.Services;
 
 namespace Dotnet.Cblite.Inventory.Shared.Tests;

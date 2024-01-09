@@ -1,6 +1,6 @@
-using Dotnet.Cblite.Inventory.Models;
+using Dotnet.Cblite.Inventory.Maui.Models;
 
-namespace Dotnet.Cblite.Inventory.Services;
+namespace Dotnet.Cblite.Inventory.Maui.Services;
 
 public interface IAuthenticationService
 {

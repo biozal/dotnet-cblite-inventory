@@ -1,0 +1,200 @@
+{
+	"interface":":4984",
+	"adminInterface":":4985",
+	"log": ["*"],
+	"logging": {
+	  "log_file_path": "/var/tmp/sglogs",
+	  "console": {
+		"log_level": "debug",
+		"log_keys": ["*"]
+	  },
+	  "error": {
+		"enabled": true,
+		"rotation": {
+		  "max_size": 20,
+		  "max_age": 180
+		}
+	  },
+	  "warn": {
+		"enabled": true,
+		"rotation": {
+		  "max_size": 20,
+		  "max_age": 90
+		}
+	  },
+	  "info": {
+		"enabled": false
+	  },
+	  "debug": {
+		"enabled": false
+	  }
+	},
+	"disable_persistent_config":true,
+	"server_tls_skip_verify": true,
+	"use_tls_server": false,
+	"databases": {
+	  "erp": {
+		"import_docs": true,
+		"bucket":"erpBeer",
+		"server": "couchbase://couchbase-server",
+		"enable_shared_bucket_access":true,
+		"delta_sync": {
+		  "enabled":false
+		},
+		 "num_index_replicas":0,
+		"username": "admin",
+		"password": "P@$$w0rd",
+	   "users": { 
+		"jmoore@example.com":  { "password": "P@ssw0rd12", "admin_roles": ["office::santaclara", "office::atlanta","office::nyc"] },
+		"jthomas@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::santaclara", "office::atlanta"] },
+		"msmith@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::nyc","office::atlanta"] },
+		"pjackson@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::santaclara"] },
+		"brodriguez@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::santaclara"] },
+		"jrobinson@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::santaclara"] },
+		"jjohnsonson@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::santaclara"] },
+		"wjones@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::atlanta"] },
+		"thernandez@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::atlanta"] },
+		"cmiller@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::atlanta"] },
+		"sanderson@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::atlanta"] },
+		"slee@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::atlanta"] },
+		"kwhite@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::nyc"] },
+		"jlewis@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::nyc"] },
+		"dbrown@example.com": { "password": "P@ssword12", "admin_roles": ["office::nyc"] },
+		"dsanchez@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::nyc"] },
+		"lgonzalez@example.com": { "password": "P@ssw0rd12", "admin_roles": ["office::nyc"] }
+		},
+		"roles": {
+		  "office::nyc": {
+			"admin_channels": [
+			  "channel.office::nyc"
+			]
+		  },
+		  "office::santaclara": {
+			"admin_channels": [
+			  "channel.office::santaclara"
+			]
+		  },
+		  "office::atlanta": {
+			"admin_channels": [
+			  "channel.office::atlanta"
+			]
+		  },
+		  "systemAdmin": {
+			"admin_channels": [
+				"sysAdmin"
+			]
+		  }
+		},
+		"scopes": {
+			"retail": {
+				"collections": {
+					"customers": {
+						"import_filter": "function (doc) { return false; }"
+					},
+					"orders": {
+						"import_filter": "function (doc) { return false; }"
+					},
+					"districts": {
+						"import_filter": "function (doc) { return false; }"
+					},
+					"items": {
+						"import_filter": "function (doc) { return true; }"
+					}
+				}
+			},
+			"audit": {
+				"collections": {
+					"internalInventory": {
+						"import_filter": "function (doc) { return true; }"
+					}
+				}
+			},
+			"workorders": {
+				"collections": {
+					"projects": {
+						"import_filter": "function (doc) { return true; }"
+					},
+					"workItems": {
+						"import_filter": "function (doc) { return false; }"
+					}
+				}
+			},
+			"personnel": {
+				"collections": {
+					"userProfiles": {
+						"import_filter": "function(doc) { return true; }",
+						"sync": `function (doc, oldDoc, meta) {
+
+							const systemAdmin = "sysAdmin";
+						
+							//only system admins can delete user profiles
+							if (isDelete()){
+								requireRole(systemAdmin);	
+								return;
+							}
+						
+							if (!doc.email) {
+								throw({forbidden : "email is required"});
+							} else {
+						
+								//first validate the documentId field is in proper format and that someone isn't trying to change the documentId field
+								
+								const docId = "profile::" + doc.email;
+								if (doc.userProfileId != docId && doc._id != docId ) {
+									throw({forbidden : "documentId be in format profile::<email>"});
+								}
+								if (isEmailNotChanged(oldDoc, doc)){
+									throw({forbidden : "Can't change email address/documentId."});
+								}
+						
+								//require the assigned user to the doc to be the same user if updating
+								requireUser(doc.email);
+						
+								//allow all users to see all user profiles - they just can't create/edit them
+								channel("*");
+							}
+						
+							function isEmailNotChanged(oldDoc, doc){
+								if(oldDoc != null){ 
+									if ((oldDoc.userProfileId != docId.userProfileId) || 
+									(oldDoc.email != doc.email)){
+											return true;
+									}
+								}
+								return false;
+							}
+						
+							function isDelete(){
+								return (doc._deleted == true);
+							}
+						}`
+					},
+					"offices": {
+						"import_filter": "function (doc) { return true; }",
+						"sync": `function (doc, oldDoc, meta) {
+
+							const systemAdmin = "sysAdmin";
+						
+							//only system admins can delete offices
+							if (doc._deleted){
+								requireRole(systemAdmin);	
+								return;
+							}
+							if (!doc.officeId) {
+								throw({forbidden : "officeId is required"});
+							}
+						
+							//only system admins can create or update offices
+							requireRole(systemAdmin);
+						
+							//allow all users to sync all offices
+							channel("*");
+						}` 
+						}
+					}
+				}
+			}
+	  },
+	  "user_xattr_key": "channelXAttribute"
+	}
+}

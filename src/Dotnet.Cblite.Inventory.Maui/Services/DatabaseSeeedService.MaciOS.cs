@@ -1,8 +1,6 @@
-using System.IO;
-using System.Threading.Tasks;
 using Foundation;
 
-namespace Dotnet.Cblite.Inventory.Services;
+namespace Dotnet.Cblite.Inventory.Maui.Services;
 
 public class DatabaseSeedServiceMaciOS
     : IDatabaseSeedService

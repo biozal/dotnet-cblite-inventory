@@ -1,33 +1,289 @@
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.Messaging;
-using Dotnet.Cblite.Inventory.Messages;
-using Dotnet.Cblite.Inventory.Models;
+using Dotnet.Cblite.Inventory.Maui.Messages;
+using Dotnet.Cblite.Inventory.Maui.Models;
 
-
-namespace Dotnet.Cblite.Inventory.Services;
-
+namespace Dotnet.Cblite.Inventory.Maui.Services;
 
 public class MockAuthenticationService
     : IAuthenticationService
 {
     private readonly IEnumerable<User> _mockUsers = new List<User>
     {
-        new User("demo@example.com", "P@ssw0rd12", "team1"),
-        new User("demo1@example.com", "P@ssw0rd12", "team1"),
-        new User("demo2@example.com", "P@ssw0rd12", "team2"),
-        new User("demo3@example.com", "P@ssw0rd12", "team2"),
-        new User("demo4@example.com", "P@ssw0rd12", "team3"),
-        new User("demo5@example.com", "P@ssw0rd12", "team3"),
-        new User("demo6@example.com", "P@ssw0rd12", "team4"),
-        new User("demo7@example.com", "P@ssw0rd12", "team4"),
-        new User("demo8@example.com", "P@ssw0rd12", "team5"),
-        new User("demo9@example.com", "P@ssw0rd12", "team5"),
-        new User("demo10@example.com", "P@ssw0rd12", "team6"),
-        new User("demo11@example.com", "P@ssw0rd12", "team6"),
-        new User("demo12@example.com", "P@ssw0rd12", "team7"),
-        new User("demo13@example.com", "P@ssw0rd12", "team8"),
-        new User("demo14@example.com", "P@ssw0rd12", "team9"),
-        new User("demo15@example.com", "P@ssw0rd12", "team10"),
+        new User(
+            "jmoore@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Santa Clara",
+                        OfficeId = "office::santaclara"
+                    },
+                    Type = Office.TypePrimary 
+                },
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Atlanta",
+                        OfficeId = "office::atlanta"
+                    },
+                    Type = Office.TypeSecondary 
+                },
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "New York City",
+                        OfficeId = "office::nyc"
+                    },
+                    Type = Office.TypeSecondary 
+                },
+            ]),
+        new User(
+            "jthomas@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Santa Clara",
+                        OfficeId = "office::santaclara"
+                    },
+                    Type = Office.TypePrimary 
+                },
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Atlanta",
+                        OfficeId = "office::atlanta"
+                    },
+                    Type = Office.TypeSecondary
+                },
+            ]),
+        new User(
+            "msmith@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "New York City",
+                        OfficeId = "office::nyc"
+                    },
+                    Type = Office.TypePrimary 
+                },
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Atlanta",
+                        OfficeId = "office::atlanta"
+                    },
+                    Type = Office.TypeSecondary 
+                },
+            ]),
+        new User(
+            "pjackson@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Santa Clara",
+                        OfficeId = "office::santaclara"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "brodriguez@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Santa Clara",
+                        OfficeId = "office::santaclara"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "jrobinson@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Santa Clara",
+                        OfficeId = "office::santaclara"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "jjohnsonson@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Santa Clara",
+                        OfficeId = "office::santaclara"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "wjones@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Atlanta",
+                        OfficeId = "office::atlanta"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "thernandez@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Atlanta",
+                        OfficeId = "office::atlanta"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "cmiller@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Atlanta",
+                        OfficeId = "office::atlanta"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "sanderson@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Atlanta",
+                        OfficeId = "office::atlanta"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "slee@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "Atlanta",
+                        OfficeId = "office::atlanta"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "kwhite@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "New York City",
+                        OfficeId = "office::nyc"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "jlewis@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "New York City",
+                        OfficeId = "office::nyc"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "dbrown@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "New York City",
+                        OfficeId = "office::nyc"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "dsanchez@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "New York City",
+                        OfficeId = "office::nyc"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
+        new User(
+            "lgonzalez@example.com",
+            "P@ssw0rd12",
+            [
+                new OfficeAssignment
+                {
+                    Office = new Office
+                    {
+                        Name = "New York City",
+                        OfficeId = "office::nyc"
+                    },
+                    Type = Office.TypePrimary 
+                },
+            ]),
     };
 
     public User? CurrentUser { get; set; }
@@ -49,7 +305,7 @@ public class MockAuthenticationService
         catch (OperationCanceledException)
         {
             CurrentUser = null;
-            Debug.WriteLine($"{DateTime.Now}::Authentication Cancelled for {username}"); 
+            Debug.WriteLine($"{DateTime.Now}::Authentication Cancelled for {username}");
         }
         catch (Exception)
         {
@@ -57,8 +313,8 @@ public class MockAuthenticationService
             WeakReferenceMessenger.Default.Send(
                 new AuthenticationMessage(
                     new UserAuthenticationStatus(AuthenticationStatus.AuthenticationErrorUsernamePassword, username)
-                    )
-                );
+                )
+            );
         }
     }
 
@@ -70,7 +326,7 @@ public class MockAuthenticationService
         WeakReferenceMessenger.Default.Send(
             new AuthenticationMessage(
                 new UserAuthenticationStatus(AuthenticationStatus.SignedOut, currentUsername ?? "")
-                )
-            );
+            )
+        );
     }
 }

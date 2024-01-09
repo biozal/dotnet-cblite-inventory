@@ -1,0 +1,341 @@
+[
+	{
+		"userProfileId": "profile::jmoore@example.com",
+		"firstName": "Jessica",
+		"lastName": "Moore",
+		"email": "jmoore@example.com",
+		"jobTitle": "Director",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::santaclara",
+					"name": "Santa Clara"
+
+				},
+				"type": "primary"
+			},
+			{
+				"office": {
+					"officeId": "office::atlanta",
+					"name": "Atlanta"
+
+				},
+				"type": "secondary"
+			},
+			{
+				"office": {
+					"officeId": "office::nyc",
+					"name": "New York City"
+
+				},
+				"type": "secondary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::jthomas@example.com",
+		"firstName": "Joseph",
+		"lastName": "Thomas",
+		"email": "jthomas@example.com",
+		"jobTitle": "Senior Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::santaclara",
+					"name": "Santa Clara"
+
+				},
+				"type": "primary"
+			},
+			{
+				"office": {
+					"officeId": "office::atlanta",
+					"name": "Atlanta"
+
+				},
+				"type": "secondary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::msmith@example.com",
+		"firstName": "Mary",
+		"lastName": "Smith",
+		"email": "msmith@example.com",
+		"jobTitle": "Senior Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::nyc",
+					"name": "New York City"
+
+				},
+				"type": "primary"
+			},
+			{
+				"office": {
+					"officeId": "office::atlanta",
+					"name": "Atlanta"
+
+				},
+				"type": "secondary"
+			}
+		]
+	},	
+	{
+		"userProfileId": "profile::pjackson@example.com",
+		"firstName": "Patricia",
+		"lastName": "Jackson",
+		"email": "pjackson@example.com",
+		"jobTitle": "Junior Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::santaclara",
+					"name": "Santa Clara"
+
+				},
+				"type": "primary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::brodriguez@example.com",
+		"firstName": "Barbara",
+		"lastName": "Rodriguez",
+		"email": "brodriguez@example.com",
+		"jobTitle": "Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::santaclara",
+					"name": "Santa Clara"
+
+				},
+				"type": "primary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::jrobinson@example.com",
+		"firstName": "Jennifer",
+		"lastName": "Robinson",
+		"email": "jrobinson@example.com",
+		"jobTitle": "Senior Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::santaclara",
+					"name": "Santa Clara"
+
+				},
+				"type": "primary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::jjohnsonson@example.com",
+		"firstName": "John",
+		"lastName": "Johnson",
+		"email": "jjohnsonson@example.com",
+		"jobTitle": "Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::santaclara",
+					"name": "Santa Clara"
+
+				},
+				"type": "primary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::wjones@example.com",
+		"firstName": "William",
+		"lastName": "Jones",
+		"email": "wjones@example.com",
+		"jobTitle": "Junior Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::atlanta",
+					"name": "Atlanta"
+
+				},
+				"type": "primary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::thernandez@example.com",
+		"firstName": "Thomas",
+		"lastName": "Hernandez",
+		"email": "thernandez@example.com",
+		"jobTitle": "Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::atlanta",
+					"name": "Atlanta"
+
+				},
+				"type": "primary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::cmiller@example.com",
+		"firstName": "Charles",
+		"lastName": "Miller",
+		"email": "cmiller@example.com",
+		"jobTitle": "Senior Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::atlanta",
+					"name": "Atlanta"
+
+				},
+				"type": "primary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::sanderson@example.com",
+		"firstName": "Susan",
+		"lastName": "Anderson",
+		"email": "sanderson@example.com",
+		"jobTitle": "Supervisor",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::atlanta",
+					"name": "Atlanta"
+
+				},
+				"type": "primary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::slee@example.com",
+		"firstName": "Sarah",
+		"lastName": "Lee",
+		"email": "slee@example.com",
+		"jobTitle": "Senior Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::atlanta",
+					"name": "Atlanta"
+
+				},
+				"type": "primary"
+			}
+		]
+	},
+	{
+		"userProfileId": "profile::kwhite@example.com",
+		"firstName": "Karen",
+		"lastName": "White",
+		"email": "kwhite@example.com",
+		"jobTitle": "Junior Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::nyc",
+					"name": "New York City"
+
+				},
+				"type": "primary"
+			}
+		]
+	},	
+	{
+		"userProfileId": "profile::jlewis@example.com",
+		"firstName": "Jessica",
+		"lastName": "Lewis",
+		"email": "jlewis@example.com",
+		"jobTitle": "Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::nyc",
+					"name": "New York City"
+
+				},
+				"type": "primary"
+			}
+		]
+	},	
+	{
+		"userProfileId": "profile::dbrown@example.com",
+		"firstName": "Dana",
+		"lastName": "Brown",
+		"email": "dbrown@example.com",
+		"jobTitle": "Supervisor",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::nyc",
+					"name": "New York City"
+
+				},
+				"type": "primary"
+			}
+		]
+	},	
+
+	{
+		"userProfileId": "profile::dsanchez@example.com",
+		"firstName": "Donna",
+		"lastName": "Sanchez",
+		"email": "dsanchez@example.com",
+		"jobTitle": "Senior Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::nyc",
+					"name": "New York City"
+
+				},
+				"type": "primary"
+			}
+		]
+	},	
+	{
+		"userProfileId": "profile::lgonzalez@example.com",
+		"firstName": "Lisa",
+		"lastName": "Gonzalez",
+		"email": "lgonzalez@example.com",
+		"jobTitle": "Accountant",
+		"department": "Accounting",
+		"offices": [
+			{
+				"office": {
+					"officeId": "office::nyc",
+					"name": "New York City"
+
+				},
+				"type": "primary"
+			}
+		]
+	}	
+]

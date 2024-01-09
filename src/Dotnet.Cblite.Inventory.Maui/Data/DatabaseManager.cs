@@ -1,10 +1,8 @@
 using System.Diagnostics;
 using Couchbase.Lite;
 using Couchbase.Lite.Logging;
-using Couchbase.Lite.Sync;
-using Microsoft.Maui.Devices;
 
-namespace Dotnet.Cblite.Inventory.Data;
+namespace Dotnet.Cblite.Inventory.Maui.Data;
 
 public class DatabaseManager 
     : IDisposable

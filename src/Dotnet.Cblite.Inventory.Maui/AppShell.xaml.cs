@@ -1,10 +1,7 @@
-﻿using System;
-using CommunityToolkit.Mvvm.Messaging;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using Dotnet.Cblite.Inventory.Maui.Messages;
 using Dotnet.Cblite.Inventory.Maui.ViewModels;
 using Dotnet.Cblite.Inventory.Maui.Views;
-using Dotnet.Cblite.Inventory.Messages;
-using Dotnet.Cblite.Inventory.Services;
-using Microsoft.Maui.Controls;
 
 namespace Dotnet.Cblite.Inventory.Maui;
 

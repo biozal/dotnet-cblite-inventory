@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.Messaging.Messages;
 
-namespace Dotnet.Cblite.Inventory.Messages;
+namespace Dotnet.Cblite.Inventory.Maui.Messages;
 
 
 public enum AuthenticationStatus

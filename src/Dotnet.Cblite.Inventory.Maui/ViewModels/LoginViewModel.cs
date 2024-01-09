@@ -1,8 +1,8 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
-using Dotnet.Cblite.Inventory.Messages;
-using Dotnet.Cblite.Inventory.Services;
+using Dotnet.Cblite.Inventory.Maui.Messages;
+using Dotnet.Cblite.Inventory.Maui.Services;
 
 namespace Dotnet.Cblite.Inventory.Maui.ViewModels;
 
@@ -35,7 +35,7 @@ public partial class LoginViewModel
     [RelayCommand]
     private void SetDefaultUsernamePassword()
     {
-        Username = "demo@example.com";
+        Username = "jmoore@example.com";
         Password = "P@ssw0rd12";
     } 
 

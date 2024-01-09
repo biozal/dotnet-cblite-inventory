@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Maui;
+using Dotnet.Cblite.Inventory.Maui.Services;
 using Dotnet.Cblite.Inventory.Maui.ViewModels;
 using Dotnet.Cblite.Inventory.Maui.Views;
-using Dotnet.Cblite.Inventory.Services;
 using Microsoft.Extensions.Logging;
 using LoginViewModel = Dotnet.Cblite.Inventory.Maui.ViewModels.LoginViewModel;
 
