@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.Messaging;
 using Dotnet.Cblite.Inventory.Maui.Messages;
-using Dotnet.Cblite.Inventory.Maui.Models;
+using Dotnet.Cblite.Inventory.Models;
 
 namespace Dotnet.Cblite.Inventory.Maui.Services;
 

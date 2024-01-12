@@ -25,10 +25,11 @@ if ! [ -f "$FILE" ]; then
   /opt/couchbase/bin/couchbase-cli cluster-init -c 127.0.0.1 \
   --cluster-username $COUCHBASE_ADMINISTRATOR_USERNAME \
   --cluster-password $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  --services data,index,query,eventing \
+  --services data,index,query,eventing,analytics \
   --cluster-ramsize $COUCHBASE_RAM_SIZE \
   --cluster-index-ramsize $COUCHBASE_INDEX_RAM_SIZE \
   --cluster-eventing-ramsize $COUCHBASE_EVENTING_RAM_SIZE \
+  --cluster-analytics-ramsize $COUCHBASE_ANALYTICS_RAM_SIZE \
   --index-storage-setting default
 
   sleep 2s 
@@ -186,228 +187,31 @@ if ! [ -f "$FILE" ]; then
   sleep 2s
 
   # import sample data into the bucket
+  ########################################################
+  # use Dotnet.Cblite.Inventory.DataLoader to load data 
+  # into the bucket  
+  ########################################################
+
+  # NO LONGER USED becuse of Sync Gateway XATTR support
   # https://docs.couchbase.com/server/current/tools/cbimport-json.html
+  # https://docs.couchbase.com/sync-gateway/current/access-control-how-use-xattrs-for-access-grants.html
+
 
   # load warehouses
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/warehouses.json" \
-  -f list \
-  -g %warehouseId% \
-  --scope-collection-exp retail.warehouses \
-  -t 4 \
+  # /opt/couchbase/bin/cbimport json \
+  # -c http://localhost:8091 \
+  # -u $COUCHBASE_ADMINISTRATOR_USERNAME \
+  # -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
+  # -b $COUCHBASE_BUCKET \
+  # -d "file:///opt/couchbase/init/warehouses.json" \
+  # -f list \
+  # -g %warehouseId% \
+  # --scope-collection-exp retail.warehouses \
+  # -t 4 \
   
-  # load districts
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_atlanta.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_chicago.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_denver.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_detroit.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_houston.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_jacksonville.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_kansascity.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_nashville.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_newyork.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_philadelphia.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_santaclara.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/districts_seattle.json" \
-  -f list \
-  -g %districtId% \
-  --scope-collection-exp retail.districts \
-  -t 4 \
-
-  # load items
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/beer_items.json" \
-  -f list \
-  -g %itemId% \
-  --scope-collection-exp retail.items \
-  -t 4 \
-
-  # load customers and orders 
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/customers.json" \
-  -f list \
-  -g %customerId% \
-  --scope-collection-exp retail.customers \
-  -t 4 \
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/orders.json" \
-  -f list \
-  -g %orderId% \
-  --scope-collection-exp retail.orders \
-  -t 4 \
-
-  # work orders
-   /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/projects.json" \
-  -f list \
-  -g %orderId% \
-  --scope-collection-exp workorders.projects \
-  -t 4 \ 
-
-  # personnel 
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/offices.json" \
-  -f list \
-  -g %orderId% \
-  --scope-collection-exp personnel.offices \
-  -t 4 \ 
-
-  /opt/couchbase/bin/cbimport json \
-  -c http://localhost:8091 \
-  -u $COUCHBASE_ADMINISTRATOR_USERNAME \
-  -p $COUCHBASE_ADMINISTRATOR_PASSWORD \
-  -b $COUCHBASE_BUCKET \
-  -d "file:///opt/couchbase/init/userProfiles.json" \
-  -f list \
-  -g %orderId% \
-  --scope-collection-exp personnel.userProfiles \
-  -t 4 \ 
-
   # create file so we know that the cluster is setup and don't run the setup again 
   touch $FILE
 
-  # remove sample data files to save on space on the docker image
-  rm -rf /opt/couchbase/init/*.json
 fi 
   # docker compose will stop the container from running unless we do this
   # known issue and workaround

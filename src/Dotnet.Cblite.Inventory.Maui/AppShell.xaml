@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <Shell
     x:Class="Dotnet.Cblite.Inventory.Maui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -14,10 +13,6 @@
     FlyoutVerticalScrollMode="Auto"
     Title="Dotnet.Cblite.Inventory.Maui">
     <!--
-    
-    set this in the main tag
-    x:DataType="viewModel:AppShellViewModel"
-    
     TODO - fix for iOS until this bug is fixed
     https://github.com/dotnet/maui/issues/17965
     -->

@@ -1,7 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Dotnet.Cblite.Inventory.Maui.Messages;
-using Dotnet.Cblite.Inventory.Maui.Models;
+using Dotnet.Cblite.Inventory.Models;
 using Dotnet.Cblite.Inventory.Maui.Services;
 
 namespace Dotnet.Cblite.Inventory.Maui.ViewModels;
@@ -26,6 +26,7 @@ public partial class AppShellViewModel
     public AppShellViewModel(IAuthenticationService authenticationService)
     {
         _authenticationService = authenticationService;
+        
         //set default data
         ProfileImageName = "phprofile.png";
         FullName = "Not Set";
@@ -40,7 +41,7 @@ public partial class AppShellViewModel
         if (userAuthMessage.Status == AuthenticationStatus.Authenticated && _authenticationService.CurrentUser is { } user)
         {
             EmailAddress = user.Username;
-            //get user profile info
+            //TODO:  get user profile info from the database
         }
     }
 }
