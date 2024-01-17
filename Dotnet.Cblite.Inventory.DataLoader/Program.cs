@@ -1,18 +1,52 @@
 ﻿using System.Diagnostics;
 using System.Text.Json;
+using Couchbase;
 using Dotnet.Cblite.Inventory.Models;
 
 const string jsonFileLocation = "../../../../automation/data-gen/";
 
-// ## load data types into Couchbase Server
-LoadUserProfiles();
-                                             
+//TODO move this to read environmental variables
+const string COUCHBASE_USERNAME = "dataloader";
+const string COUCHBASE_PASSWORD = @"P@$sw0rd12";
+const string COUCHBASE_CONNECTION_STRING = @"couchbase://localhost";
+const string COUCHBASE_BUCKET_NAME = "demoErpInventory";
+
+ICluster? cluster = null;
+IBucket? bucket = null;
+
+try
+{
+    (cluster, bucket) = await GetClusterBucket(COUCHBASE_CONNECTION_STRING, COUCHBASE_USERNAME, COUCHBASE_PASSWORD);
+    if (bucket != null)
+    {
+        // ## load data types into Couchbase Server
+        await LoadUserProfiles(cluster, bucket);
+    }
+    else
+    {
+        Console.WriteLine("ERROR:  Bucket is NULL");
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"{ex.Message} - StackTrace: {ex.StackTrace}");
+}
+finally
+{
+    //remove cluster from memory and close connection
+    if (cluster != null)
+    {
+        await cluster.DisposeAsync();
+    }
+}
+
 // ## EOF ##
 Console.ReadKey();
 
-void LoadUserProfiles()
+async Task LoadUserProfiles(ICluster? cluster, IBucket? bucket)
 {
     const string jsonFileUserProfilesLocation = "userProfiles.json";
+
     string userProfilePath = Path.Combine(jsonFileLocation, jsonFileUserProfilesLocation);
 
     if (!File.Exists(userProfilePath))
@@ -21,28 +55,54 @@ void LoadUserProfiles()
     }
     else
     {
-        string json = File.ReadAllText(userProfilePath);
-        try
+        if (bucket is not null)
         {
-            var userProfiles = JsonSerializer.Deserialize<List<UserProfile>>(json);
-
-            if (userProfiles is { Count: > 0 })
+            string json = File.ReadAllText(userProfilePath);
+            try
             {
-                foreach (var userProfile in userProfiles)
+                var userProfiles = JsonSerializer.Deserialize<List<UserProfile>>(json);
+
+                if (userProfiles is { Count: > 0 })
                 {
-                    //TODO set x-attributes and save to the database
-                    Debug.WriteLine($"{userProfile.FirstName} {userProfile.LastName} {userProfile.Email}");
+                    var scope = await bucket.ScopeAsync("personnel");
+                    var collection = await scope.CollectionAsync("userProfiles");
+                    
+                    var tasks = new List<Task>();
+                    
+                    foreach (var userProfile in userProfiles)
+                    {
+                        tasks.Add(collection.UpsertAsync(userProfile.UserProfileId, userProfile));
+                    }
+                    
+                    await Task.WhenAll(tasks);
+                    Console.WriteLine("User Profiles loaded");
+                }
+                else
+                {
+                    //TODO make file logger and write to that
+                    Debug.WriteLine($"Issue with loading from json {json}");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                //TODO make file logger and write to that
-                Debug.WriteLine($"Issue with loading from json {json}");
+                Debug.WriteLine($"ERROR:  {ex.Message} {ex.StackTrace}");
             }
         }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"ERROR:  {ex.Message} {ex.StackTrace}");
-        }
     }
+}
+
+
+async Task<(ICluster, IBucket?)> GetClusterBucket(
+    string connectionString, 
+    string username, string 
+        password)
+{
+    // Initialize the Couchbase cluster
+    var cluster =
+        await Cluster.ConnectAsync(connectionString, username, password);
+
+    // Get the bucket
+    var bucket = await cluster.BucketAsync(COUCHBASE_BUCKET_NAME);
+
+    return (cluster, bucket);
 }

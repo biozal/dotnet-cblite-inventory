@@ -63,6 +63,18 @@ if ! [ -f "$FILE" ]; then
   --roles mobile_sync_gateway[*] \
   --auth-domain local
 
+    sleep 2s 
+
+    /opt/couchbase/bin/couchbase-cli user-manage \
+  --cluster http://127.0.0.1 \
+  --username $COUCHBASE_ADMINISTRATOR_USERNAME \
+  --password $COUCHBASE_ADMINISTRATOR_PASSWORD \
+  --set \
+  --rbac-username $COUCHBASE_DL_USERNAME \
+  --rbac-password $COUCHBASE_DL_PASSWORD \
+  --roles bucket_full_access[*] \
+  --auth-domain local
+
   sleep 2s 
 
   # ****************************************
