@@ -4,9 +4,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotnet.Cblite.Inventory.Mau
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Cblite.Inventory.Shared.Tests", "src\Dotnet.Cblite.Inventory.Shared.Tests\Dotnet.Cblite.Inventory.Shared.Tests.csproj", "{01185237-8D0A-4D59-BE38-466360B03EA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Cblite.Inventory.DataLoader", "Dotnet.Cblite.Inventory.DataLoader\Dotnet.Cblite.Inventory.DataLoader.csproj", "{666FAFD0-F1BD-4F0A-A81E-5DFD17696CDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Cblite.Inventory.DataLoader", "src\Dotnet.Cblite.Inventory.DataLoader\Dotnet.Cblite.Inventory.DataLoader.csproj", "{666FAFD0-F1BD-4F0A-A81E-5DFD17696CDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Cblite.Inventory.Models", "Dotnet.Cblite.Inventory.Models\Dotnet.Cblite.Inventory.Models.csproj", "{99928699-39C5-454B-80FE-72F7DCE6A534}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Cblite.Inventory.Models", "src\Dotnet.Cblite.Inventory.Models\Dotnet.Cblite.Inventory.Models.csproj", "{99928699-39C5-454B-80FE-72F7DCE6A534}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

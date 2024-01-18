@@ -1,14 +1,39 @@
 [
 	{
 		"officeId": "office::santaclara",
-		"name": "Santa Clara"
+		"name": "Santa Clara",
+		"address1": "3250 Olcott St",
+		"address2": "Suite 320",
+		"city": "Santa Clara",
+		"state": "CA", 
+		"zip": "95054",
+		"geo": {
+			"lat": 37.3801501,
+			"long": -121.9700153
+		}
 	},
 	{
 		"officeId": "office::atlanta",
-		"name": "Atlanta"
+		"name": "Atlanta",
+		"address1": "121 Baker St NW",
+		"city": "Atlanta",
+		"state": "GA", 
+		"zip": "30313",
+		"geo": {
+			"lat": 33.7625563,
+			"long": -84.3973069
+		}
 	},
 	{
 		"officeId": "office::nyc",
-		"name": "New York City"
+		"name": "New York City",
+		"address1": "20 W 34th St.",
+		"city": "New York",
+		"state": "NY", 
+		"zip": "10001",
+		"geo": {
+			"lat": 40.7590542,
+			"long": -74.0104304
+		}
 	}
 ]
