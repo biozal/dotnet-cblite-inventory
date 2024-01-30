@@ -78,6 +78,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Dotnet.Cblite.Inventory.Models\Dotnet.Cblite.Inventory.Models.csproj" />
+	  <ProjectReference Include="..\Dotnet.Cblite.Inventory.Models\Dotnet.Cblite.Inventory.Models.csproj" />
 	</ItemGroup>
 
 	<!-- Build Properties must be defined within these property groups to ensure successful publishing

@@ -16,30 +16,30 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Santa Clara",
-                        OfficeId = "office::santaclara"
+                        DocumentId = "office::santaclara"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Atlanta",
-                        OfficeId = "office::atlanta"
+                        DocumentId = "office::atlanta"
                     },
-                    Type = Office.TypeSecondary 
+                    Type = UserOffice.TypeSecondary 
                 },
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "New York City",
-                        OfficeId = "office::nyc"
+                        DocumentId = "office::nyc"
                     },
-                    Type = Office.TypeSecondary 
+                    Type = UserOffice.TypeSecondary 
                 },
             ]),
         new User(
@@ -48,21 +48,21 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Santa Clara",
-                        OfficeId = "office::santaclara"
+                        DocumentId = "office::santaclara"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Atlanta",
-                        OfficeId = "office::atlanta"
+                        DocumentId = "office::atlanta"
                     },
-                    Type = Office.TypeSecondary
+                    Type = UserOffice.TypeSecondary
                 },
             ]),
         new User(
@@ -71,21 +71,21 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "New York City",
-                        OfficeId = "office::nyc"
+                        DocumentId = "office::nyc"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Atlanta",
-                        OfficeId = "office::atlanta"
+                        DocumentId = "office::atlanta"
                     },
-                    Type = Office.TypeSecondary 
+                    Type = UserOffice.TypeSecondary 
                 },
             ]),
         new User(
@@ -94,12 +94,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Santa Clara",
-                        OfficeId = "office::santaclara"
+                        DocumentId = "office::santaclara"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -108,12 +108,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Santa Clara",
-                        OfficeId = "office::santaclara"
+                        DocumentId = "office::santaclara"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -122,12 +122,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Santa Clara",
-                        OfficeId = "office::santaclara"
+                        DocumentId = "office::santaclara"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -136,12 +136,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Santa Clara",
-                        OfficeId = "office::santaclara"
+                        DocumentId = "office::santaclara"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -150,12 +150,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Atlanta",
-                        OfficeId = "office::atlanta"
+                        DocumentId = "office::atlanta"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -164,12 +164,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Atlanta",
-                        OfficeId = "office::atlanta"
+                        DocumentId = "office::atlanta"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -178,12 +178,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Atlanta",
-                        OfficeId = "office::atlanta"
+                        DocumentId = "office::atlanta"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -192,12 +192,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Atlanta",
-                        OfficeId = "office::atlanta"
+                        DocumentId = "office::atlanta"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -206,12 +206,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "Atlanta",
-                        OfficeId = "office::atlanta"
+                        DocumentId = "office::atlanta"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -220,12 +220,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "New York City",
-                        OfficeId = "office::nyc"
+                        DocumentId = "office::nyc"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -234,12 +234,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "New York City",
-                        OfficeId = "office::nyc"
+                        DocumentId = "office::nyc"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -248,12 +248,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "New York City",
-                        OfficeId = "office::nyc"
+                        DocumentId = "office::nyc"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -262,12 +262,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "New York City",
-                        OfficeId = "office::nyc"
+                        DocumentId = "office::nyc"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
         new User(
@@ -276,12 +276,12 @@ public class MockAuthenticationService
             [
                 new OfficeAssignment
                 {
-                    Office = new Office
+                    Office = new UserOffice
                     {
                         Name = "New York City",
-                        OfficeId = "office::nyc"
+                        DocumentId = "office::nyc"
                     },
-                    Type = Office.TypePrimary 
+                    Type = UserOffice.TypePrimary 
                 },
             ]),
     };

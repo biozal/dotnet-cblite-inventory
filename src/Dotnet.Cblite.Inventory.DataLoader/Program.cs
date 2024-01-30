@@ -45,6 +45,24 @@ finally
 // ## EOF ##
 Console.ReadKey();
 
+async Task LoadOffices(ICluster? cluster, IBucket? bucket)
+{
+    string fileLocation = "offices.json";
+    string scopeName = "personnel";
+    string collectionName = "offices";
+
+    await LoadData<Office>(cluster, bucket, fileLocation, scopeName, collectionName);
+}
+
+async Task LoadUserProfiles(ICluster? cluster, IBucket? bucket)
+{
+    string fileLocation = "userProfiles.json";
+    string scopeName = "personnel";
+    string collectionName = "userProfiles";
+    
+    await LoadData<UserProfile>(cluster, bucket, fileLocation, scopeName, collectionName);
+}
+
 async Task LoadData<T>(
     ICluster? cluster,
     IBucket? bucket,
@@ -98,25 +116,6 @@ async Task LoadData<T>(
         }
     }
 }
-
-async Task LoadOffices(ICluster? cluster, IBucket? bucket)
-{
-    string fileLocation = "offices.json";
-    string scopeName = "personnel";
-    string collectionName = "offices";
-
-    await LoadData<Office>(cluster, bucket, fileLocation, scopeName, collectionName);
-}
-
-async Task LoadUserProfiles(ICluster? cluster, IBucket? bucket)
-{
-    string fileLocation = "userProfiles.json";
-    string scopeName = "personnel";
-    string collectionName = "userProfiles";
-    
-    await LoadData<UserProfile>(cluster, bucket, fileLocation, scopeName, collectionName);
-}
-
 
 async Task<(ICluster, IBucket?)> GetClusterBucket(
     string connectionString,
