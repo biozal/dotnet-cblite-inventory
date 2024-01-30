@@ -77,7 +77,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Dotnet.Cblite.Inventory.Models\Dotnet.Cblite.Inventory.Models.csproj" />
 	  <ProjectReference Include="..\Dotnet.Cblite.Inventory.Models\Dotnet.Cblite.Inventory.Models.csproj" />
 	</ItemGroup>
 
